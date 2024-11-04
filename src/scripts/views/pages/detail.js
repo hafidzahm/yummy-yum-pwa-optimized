@@ -2,7 +2,7 @@ import RestaurantSources from '../../data/restaurant-sources';
 import { createRestaurantDetailTemplate } from '../templates/template-creator';
 import UrlParser from '../../routes/url-parser';
 import PostReview from '../../utils/post-review';
-import buttonFavoriteInitiator from '../../utils/button-favorite-initiator';
+import buttonFavoriteInitiator from '../../utils/button-favorite-presenter';
 
 const Detail = {
   async render() {
