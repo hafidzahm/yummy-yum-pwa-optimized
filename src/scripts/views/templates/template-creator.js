@@ -52,11 +52,11 @@ const createRestaurantDetailTemplate = (restaurant) => `
     </div>
     <div class="food__container">
                 ${restaurant.menus.foods
-    .map(
-      (food) => `
+                  .map(
+                    (food) => `
                     <p class="details-menu-foods">${food.name}</p>`
-    )
-    .join('')}
+                  )
+                  .join('')}
     </div>
   </div>
 
@@ -66,11 +66,11 @@ const createRestaurantDetailTemplate = (restaurant) => `
     </div>
     <div class="drinks__container">
     ${restaurant.menus.drinks
-    .map(
-      (drink) => `
+      .map(
+        (drink) => `
           <p class="details-menu-drinks">${drink.name}</p>`
-    )
-    .join('')}
+      )
+      .join('')}
     </div>
   </div>
 </div>
