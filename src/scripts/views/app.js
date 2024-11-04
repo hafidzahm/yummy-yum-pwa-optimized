@@ -33,10 +33,7 @@ class App {
       event.preventDefault();
       main.focus();
     });
-
-
   }
-
 }
 
 export default App;

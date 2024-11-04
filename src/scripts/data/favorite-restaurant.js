@@ -13,13 +13,11 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 const FavoriteRestaurant = {
   async getRestaurant(id) {
     const loading = document.querySelector('#loading');
-    showLoading(loading);
+
     try {
       return (await dbPromise).get(OBJECT_STORE_NAME, id);
     } catch (err) {
       console.log(err);
-    } finally {
-      hideLoading(loading);
     }
   },
   async getAllRestaurant() {
