@@ -37,7 +37,7 @@ describe('Liking a Restaurant', () => {
       document.querySelector('[aria-label="unfavorite this restaurant"]')
     ).toBeFalsy();
   });
-  it('should be able to like the restaurant', async () => {
+  it('should be able to favorite the restaurant', async () => {
     await buttonFavoriteInitiator.init({
       buttonFavoriteContainer: document.querySelector(
         '#buttonFavoriteContainer'
@@ -49,10 +49,28 @@ describe('Liking a Restaurant', () => {
 
     document.querySelector('.favoriteButton').dispatchEvent(new Event('click'));
 
-    // Memastikan film berhasil disukai
+    // Memastikan restoran berhasil difavoritkan
     const restaurant = await FavoriteRestaurant.getRestaurant(1);
     expect(restaurant).toEqual({ id: 1 });
 
+    await FavoriteRestaurant.deleteRestaurant(1);
+  });
+  it('should not to add restaurant again when its already favorited', async () => {
+    await buttonFavoriteInitiator.init({
+      buttonFavoriteContainer: document.querySelector(
+        '#buttonFavoriteContainer'
+      ),
+      restaurant: {
+        id: 1,
+      },
+    });
+
+    // Tambahkan restoran dengan ID 1 ke daftar resto yang difavoritkan
+    await FavoriteRestaurant.putRestaurant({ id: 1 });
+    // Simulasikan pengguna menekan tombol favoritkan restoran
+    document.querySelector('.favoriteButton').dispatchEvent(new Event('click'));
+    // Tidak ada restoran yang ganda
+    expect(await FavoriteRestaurant.getAllRestaurant()).toEqual([{ id: 1 }]);
     await FavoriteRestaurant.deleteRestaurant(1);
   });
 });
