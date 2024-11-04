@@ -1,7 +1,7 @@
 import buttonFavoriteInitiator from '../src/scripts/utils/button-favorite-initiator';
 import FavoriteRestaurant from '../src/scripts/data/favorite-restaurant';
 
-describe('Liking a Restaurant', () => {
+describe('Adding Restaurant to Favorite', () => {
   const addFavoriteButtonContainer = () => {
     document.body.innerHTML = '<div id="buttonFavoriteContainer"></div>';
   };
