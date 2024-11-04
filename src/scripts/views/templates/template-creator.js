@@ -137,13 +137,13 @@ const createRestaurantItemTemplate = (restaurants) => `
       </div>
 `;
 
-const createButtonFavoriteTemplate = () => `
+const createButtonFavoriteRestaurantTemplate = () => `
   <button aria-label="favorite this restaurant" id="favoriteButtonContainer" class="favoriteButton">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
 `;
 
-const createButtonFavoritedTemplate = () => `
+const createButtonUnfavoriteRestaurantTemplate = () => `
   <button aria-label="unfavorite this restaurant" id="favoriteButtonContainer" class="favoriteButton">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
@@ -165,8 +165,8 @@ Mungkin jaringan terputus, coba beberapa saat lagi.</h1></div>
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
-  createButtonFavoriteTemplate,
-  createButtonFavoritedTemplate,
+  createButtonFavoriteRestaurantTemplate,
+  createButtonUnfavoriteRestaurantTemplate,
   EmptyRestaurantContainerTemplate,
   InternetDisconnectedTemplate,
 };
