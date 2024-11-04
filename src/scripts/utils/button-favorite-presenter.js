@@ -1,7 +1,7 @@
 import FavoriteRestaurant from '../data/favorite-restaurant';
 import {
-  createButtonFavoriteTemplate,
-  createButtonFavoritedTemplate,
+  createButtonFavoriteRestaurantTemplate,
+  createButtonUnfavoriteRestaurantTemplate,
 } from '../views/templates/template-creator';
 
 const buttonFavoriteInitiator = {
@@ -28,7 +28,8 @@ const buttonFavoriteInitiator = {
   },
 
   _renderFavorite() {
-    this._buttonFavoriteContainer.innerHTML = createButtonFavoriteTemplate();
+    this._buttonFavoriteContainer.innerHTML =
+      createButtonFavoriteRestaurantTemplate();
     const favoriteButton = document.querySelector('.favoriteButton');
     favoriteButton.addEventListener('click', async () => {
       await FavoriteRestaurant.putRestaurant(this._restaurant);
@@ -37,7 +38,8 @@ const buttonFavoriteInitiator = {
   },
 
   _renderFavorited() {
-    this._buttonFavoriteContainer.innerHTML = createButtonFavoritedTemplate();
+    this._buttonFavoriteContainer.innerHTML =
+      createButtonUnfavoriteRestaurantTemplate();
     const favoriteButton = document.querySelector('.favoriteButton');
     favoriteButton.addEventListener('click', async () => {
       await FavoriteRestaurant.deleteRestaurant(this._restaurant.id);
