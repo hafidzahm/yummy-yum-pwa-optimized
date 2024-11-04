@@ -15,6 +15,9 @@ const FavoriteRestaurant = {
     // const loading = document.querySelector('#loading');
 
     try {
+      if (!id) {
+        return;
+      }
       return (await dbPromise).get(OBJECT_STORE_NAME, id);
     } catch (err) {
       console.log(err);
@@ -36,6 +39,9 @@ const FavoriteRestaurant = {
     // const loading = document.querySelector('#loading');
     // showLoading();
     try {
+      if (!restaurant.hasOwnProperty('id')) {
+        return;
+      }
       return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
     } catch (err) {
       console.log(err);

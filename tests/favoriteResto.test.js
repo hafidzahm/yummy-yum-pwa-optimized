@@ -73,7 +73,7 @@ describe('Adding Restaurant to Favorite', () => {
     expect(await FavoriteRestaurant.getAllRestaurant()).toEqual([{ id: 1 }]);
     await FavoriteRestaurant.deleteRestaurant(1);
   });
-  xit('should no add a restaurant when it has no id', async () => {
+  it('should no add a restaurant when it has no id', async () => {
     await buttonFavoriteInitiator.init({
       buttonFavoriteContainer: document.querySelector(
         '#buttonFavoriteContainer'
