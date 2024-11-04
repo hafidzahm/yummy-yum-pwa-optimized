@@ -138,13 +138,13 @@ const createRestaurantItemTemplate = (restaurants) => `
 `;
 
 const createButtonFavoriteTemplate = () => `
-  <button aria-label="favorite this restaurant" id="favoriteButtonContainer" class="favorite">
+  <button aria-label="favorite this restaurant" id="favoriteButtonContainer" class="favoriteButton">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
 `;
 
 const createButtonFavoritedTemplate = () => `
-  <button aria-label="unfavorite this restaurant" id="favoriteButtonContainer" class="favorite">
+  <button aria-label="unfavorite this restaurant" id="favoriteButtonContainer" class="favoriteButton">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;

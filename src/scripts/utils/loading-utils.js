@@ -1,9 +1,11 @@
-export function showLoading(element) {
-  element.style.display = 'block';
+export function showLoading() {
+  const loading = document.querySelector('#loading');
+  loading.style.display = 'block';
 }
 
-export function hideLoading(element) {
-  element.style.display = 'none';
+export function hideLoading() {
+  const loading = document.querySelector('#loading');
+  loading.style.display = 'none';
 }
 
 export function sleep(response = null) {
