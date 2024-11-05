@@ -3,6 +3,7 @@ import { createRestaurantDetailTemplate } from '../templates/template-creator';
 import UrlParser from '../../routes/url-parser';
 import PostReview from '../../utils/post-review';
 import buttonFavoriteInitiator from '../../utils/button-favorite-presenter';
+import FavoriteRestaurant from '../../data/favorite-restaurant';
 
 const Detail = {
   async render() {
@@ -35,6 +36,7 @@ const Detail = {
         buttonFavoriteContainer: document.querySelector(
           '#buttonFavoriteContainer'
         ),
+        favoriteRestaurants: FavoriteRestaurant,
         restaurant: {
           id: restaurant.id,
           name: restaurant.name,
