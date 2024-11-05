@@ -42,7 +42,7 @@ describe('Adding Restaurant to Favorite', () => {
     // Simulasikan pengguna menekan tombol favoritkan restoran
     document.querySelector('.favoriteButton').dispatchEvent(new Event('click'));
     // Tidak ada restoran yang ganda
-    expect(await FavoriteRestaurant.getAllRestaurant()).toEqual([{ id: 1 }]);
+    expect(await FavoriteRestaurant.getAllRestaurants()).toEqual([{ id: 1 }]);
     await FavoriteRestaurant.deleteRestaurant(1);
   });
   it('should no add a restaurant when it has no id', async () => {
@@ -51,6 +51,6 @@ describe('Adding Restaurant to Favorite', () => {
     // Simulasikan pengguna menekan tombol favoritkan restoran
     document.querySelector('.favoriteButton').dispatchEvent(new Event('click'));
 
-    expect(await FavoriteRestaurant.getAllRestaurant()).toEqual([]);
+    expect(await FavoriteRestaurant.getAllRestaurants()).toEqual([]);
   });
 });

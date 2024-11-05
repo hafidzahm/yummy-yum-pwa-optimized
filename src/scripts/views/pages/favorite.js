@@ -22,7 +22,7 @@ const Favorite = {
   },
 
   async afterRender() {
-    const restaurants = await FavoriteRestaurant.getAllRestaurant();
+    const restaurants = await FavoriteRestaurant.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurant-list');
     const itemRestaurant = document.getElementById('restaurant-list');
 
