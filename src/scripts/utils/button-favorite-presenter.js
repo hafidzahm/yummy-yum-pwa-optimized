@@ -8,6 +8,7 @@ const buttonFavoriteInitiator = {
   async init({ buttonFavoriteContainer, restaurant }) {
     this._buttonFavoriteContainer = buttonFavoriteContainer;
     this._restaurant = restaurant;
+    this._favoriteRestaurant = FavoriteRestaurant;
 
     await this._renderButton();
   },
