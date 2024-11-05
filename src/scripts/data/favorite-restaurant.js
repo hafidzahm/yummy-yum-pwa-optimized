@@ -23,7 +23,7 @@ const FavoriteRestaurant = {
       console.log(err);
     }
   },
-  async getAllRestaurant() {
+  async getAllRestaurants() {
     // const loading = document.querySelector('#loading');
     // showLoading();
     try {

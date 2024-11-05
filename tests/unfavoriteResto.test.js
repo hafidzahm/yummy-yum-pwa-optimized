@@ -36,7 +36,7 @@ describe('Unfavorite a Restaurant', () => {
       .querySelector('[aria-label="unfavorite this restaurant"]')
       .dispatchEvent(new Event('click'));
 
-    expect(await FavoriteRestaurant.getAllRestaurant()).toEqual([]);
+    expect(await FavoriteRestaurant.getAllRestaurants()).toEqual([]);
   });
   it('should not throw error when user click unfavorite widget if the unfavorite restaurant is not in the list', async () => {
     await TestFactories.createFavoriteButtonPresenterWithRestaurant({ id: 1 });
@@ -47,6 +47,6 @@ describe('Unfavorite a Restaurant', () => {
     document
       .querySelector('[aria-label="unfavorite this restaurant"]')
       .dispatchEvent(new Event('click'));
-    expect(await FavoriteRestaurant.getAllRestaurant()).toEqual([]);
+    expect(await FavoriteRestaurant.getAllRestaurants()).toEqual([]);
   });
 });
