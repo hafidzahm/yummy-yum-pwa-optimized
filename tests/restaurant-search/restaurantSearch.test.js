@@ -3,6 +3,7 @@ import RestaurantSearchPresenter from './restaurant-search-presenter';
 import RestaurantSources from '../../src/scripts/data/restaurant-sources';
 
 describe('Searching restaurants', () => {
+  let presenter;
   beforeEach(() => {
     document.body.innerHTML = `
             <div id="restaurant-search-container">
@@ -13,13 +14,14 @@ describe('Searching restaurants', () => {
               </div>
             </div>
           `;
+
+    spyOn(RestaurantSources, 'searchRestaurants');
+    presenter = new RestaurantSearchPresenter({
+      searchRestaurants: RestaurantSources,
+    });
   });
 
   it('should able to capture the query typed by the user', () => {
-    const presenter = new RestaurantSearchPresenter({
-      searchRestaurants: RestaurantSources,
-    });
-
     const queryElement = document.getElementById('query');
     queryElement.value = 'restoran a';
 
@@ -28,11 +30,6 @@ describe('Searching restaurants', () => {
     expect(presenter.latestQuery).toEqual('restoran a');
   });
   it('should ask the model to search restaurants', () => {
-    spyOn(RestaurantSources, 'searchRestaurants');
-    const presenter = new RestaurantSearchPresenter({
-      searchRestaurants: RestaurantSources,
-    });
-
     const queryElement = document.getElementById('query');
     queryElement.value = 'restoran a';
     queryElement.dispatchEvent(new Event('change'));
