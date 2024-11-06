@@ -64,5 +64,19 @@ describe('Searching restaurants', () => {
     expect(
       document.querySelectorAll('.restaurant__name').item(0).textContent
     ).toEqual('Arjuna');
+
+    presenter._showFoundRestaurants([
+      {
+        id: 1,
+        name: 'Arjuna',
+      },
+      {
+        id: 2,
+        name: 'Ayam Bakar Cianjur',
+      },
+    ]);
+    const restaurantNames = document.querySelectorAll('.restaurant__name');
+    expect(restaurantNames.item(0).textContent).toEqual('Arjuna');
+    expect(restaurantNames.item(1).textContent).toEqual('Ayam Bakar Cianjur');
   });
 });
