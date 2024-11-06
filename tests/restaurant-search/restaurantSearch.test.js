@@ -20,6 +20,6 @@ describe('Searching restaurants', () => {
 
     queryElement.dispatchEvent(new Event('change'));
 
-    expect(presenter.userQuery).toEqual('restoran a');
+    expect(presenter.latestQuery).toEqual('restoran a');
   });
 });
