@@ -1,5 +1,9 @@
 class RestaurantSearchPresenter {
   constructor() {
+    this._listenToSearchRequestByUser();
+  }
+
+  _listenToSearchRequestByUser() {
     this._queryElement = document.getElementById('query');
     this._queryElement.addEventListener('change', (event) => {
       console.log(event);
