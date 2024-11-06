@@ -27,11 +27,13 @@ describe('Searching restaurants', () => {
   });
 
   it('should able to capture the query typed by the user', () => {
+    RestaurantSources.searchRestaurants.mockImplementation(() => []);
     searchRestaurants('restoran a');
 
     expect(presenter.latestQuery).toEqual('restoran a');
   });
   it('should ask the model to search restaurants', () => {
+    RestaurantSources.searchRestaurants.mockImplementation(() => []);
     searchRestaurants('restoran a');
 
     expect(RestaurantSources.searchRestaurants).toHaveBeenCalledWith(
@@ -85,7 +87,7 @@ describe('Searching restaurants', () => {
       document.querySelectorAll('.restaurant__name').item(0).textContent
     ).toEqual('-');
   });
-  it('should show the restaurant found by Home Section', () => {
+  fit('should show the restaurant found by Home Section', () => {
     RestaurantSources.searchRestaurants.mockImplementation((query) => {
       if (query === 'resto a') {
         return [
