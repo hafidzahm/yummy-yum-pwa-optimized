@@ -38,4 +38,20 @@ describe('Searching restaurants', () => {
       'restoran a'
     );
   });
+  it('should show the found restaurants', () => {
+    presenter._showFoundRestaurants([{ id: 1 }]);
+    expect(document.querySelectorAll('.restaurant').length).toEqual(1);
+
+    presenter._showFoundRestaurants([
+      {
+        id: 1,
+        name: 'Satu',
+      },
+      {
+        id: 2,
+        name: 'Dua',
+      },
+    ]);
+    expect(document.querySelectorAll('.restaurant').length).toEqual(2);
+  });
 });

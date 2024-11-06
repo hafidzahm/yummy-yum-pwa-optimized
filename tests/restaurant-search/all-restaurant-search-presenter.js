@@ -16,6 +16,14 @@ class AllRestaurantSearchPresenter {
     this._allRestaurants.searchRestaurants(this._latestQuery);
   }
 
+  _showFoundRestaurants(restaurants) {
+    const html = restaurants.reduce(
+      (carry, restaurant) => carry.concat('<li class="restaurant"></li>'),
+      ''
+    );
+    document.querySelector('.restaurants').innerHTML = html;
+  }
+
   get latestQuery() {
     return this._latestQuery;
   }
