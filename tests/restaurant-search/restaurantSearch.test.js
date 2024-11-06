@@ -27,11 +27,13 @@ describe('Searching restaurants', () => {
   });
 
   it('should able to capture the query typed by the user', () => {
+    RestaurantSources.searchRestaurants.mockImplementation(() => []);
     searchRestaurants('restoran a');
 
     expect(presenter.latestQuery).toEqual('restoran a');
   });
   it('should ask the model to search restaurants', () => {
+    RestaurantSources.searchRestaurants.mockImplementation(() => []);
     searchRestaurants('restoran a');
 
     expect(RestaurantSources.searchRestaurants).toHaveBeenCalledWith(
@@ -46,10 +48,14 @@ describe('Searching restaurants', () => {
       {
         id: 1,
         name: 'Arjuna',
+        city: 'Bogor',
+        rating: 4.3,
       },
       {
         id: 2,
         name: 'Ayam Bakar Cianjur',
+        city: 'Cianjur',
+        rating: 4.5,
       },
     ]);
     expect(document.querySelectorAll('.restaurant').length).toEqual(2);
@@ -69,10 +75,14 @@ describe('Searching restaurants', () => {
       {
         id: 1,
         name: 'Arjuna',
+        city: 'Bogor',
+        rating: 4.3,
       },
       {
         id: 2,
         name: 'Ayam Bakar Cianjur',
+        city: 'Cianjur',
+        rating: 4.5,
       },
     ]);
     const restaurantNames = document.querySelectorAll('.restaurant__name');
@@ -84,5 +94,35 @@ describe('Searching restaurants', () => {
     expect(
       document.querySelectorAll('.restaurant__name').item(0).textContent
     ).toEqual('-');
+  });
+  it('should show the restaurant found by Home Section', (done) => {
+    document
+      .getElementById('restaurant-search-container')
+      .addEventListener('restaurants:searched:updated', () => {
+        expect(document.querySelectorAll('.restaurant').length).toEqual(3);
+        done();
+      });
+    RestaurantSources.searchRestaurants.mockImplementation((query) => {
+      if (query === 'resto a') {
+        return [
+          { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
+          {
+            id: 222,
+            name: 'ada juga resto abcde',
+            city: 'bwandung',
+            rating: 4.5,
+          },
+          {
+            id: 333,
+            name: 'ini juga boleh resto a',
+            city: 'bogorr',
+            rating: 2.2,
+          },
+        ];
+      }
+      return [];
+    });
+    searchRestaurants('resto a');
+    expect(document.querySelectorAll('.restaurant').length).toEqual(3);
   });
 });
