@@ -79,4 +79,10 @@ describe('Searching restaurants', () => {
     expect(restaurantNames.item(0).textContent).toEqual('Arjuna');
     expect(restaurantNames.item(1).textContent).toEqual('Ayam Bakar Cianjur');
   });
+  it('should show - for found restaurant without name', () => {
+    presenter._showFoundRestaurants([{ id: 1 }]);
+    expect(
+      document.querySelectorAll('.restaurant__name').item(0).textContent
+    ).toEqual('-');
+  });
 });
