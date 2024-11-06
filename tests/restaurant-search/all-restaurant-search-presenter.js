@@ -12,7 +12,7 @@ class AllRestaurantSearchPresenter {
   }
 
   async _searchRestaurants(latestQuery) {
-    this._latestQuery = latestQuery;
+    this._latestQuery = latestQuery.trim();
     const foundRestaurant = this._allRestaurants.searchRestaurants(
       this._latestQuery
     );
