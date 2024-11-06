@@ -20,7 +20,6 @@ class AllRestaurantSearchPresenter {
   }
 
   _showFoundRestaurants(restaurants) {
-    console.log(restaurants);
     const html = restaurants.reduce(
       (carry, restaurant) =>
         carry.concat(`

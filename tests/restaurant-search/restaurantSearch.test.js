@@ -168,12 +168,8 @@ describe('Searching restaurants', () => {
       .addEventListener('restaurants:searched:updated', () => {
         const restaurantCities = document.querySelectorAll('.restaurant__city');
         expect(restaurantCities.item(0).textContent).toEqual('ABC');
-        expect(restaurantCities.item(1).textContent).toEqual(
-          'bwandung'
-        );
-        expect(restaurantCities.item(2).textContent).toEqual(
-          'bogorr'
-        );
+        expect(restaurantCities.item(1).textContent).toEqual('bwandung');
+        expect(restaurantCities.item(2).textContent).toEqual('bogorr');
         done();
       });
 
@@ -203,14 +199,12 @@ describe('Searching restaurants', () => {
     document
       .getElementById('restaurant-search-container')
       .addEventListener('restaurants:searched:updated', () => {
-        const restaurantRatings = document.querySelectorAll('.restaurant__rating');
+        const restaurantRatings = document.querySelectorAll(
+          '.restaurant__rating'
+        );
         expect(restaurantRatings.item(0).textContent).toEqual('3.4');
-        expect(restaurantRatings.item(1).textContent).toEqual(
-          '4.5'
-        );
-        expect(restaurantRatings.item(2).textContent).toEqual(
-          '2.2'
-        );
+        expect(restaurantRatings.item(1).textContent).toEqual('4.5');
+        expect(restaurantRatings.item(2).textContent).toEqual('2.2');
         done();
       });
 
