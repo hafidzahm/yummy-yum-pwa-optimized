@@ -38,6 +38,14 @@ const Home = {
 <div id="loading" class="loading">
 <img src="./loading.gif" alt="animasi loading">
 </div></div>
+
+<div id="restaurant-search-container">
+<input id="query" type="text">
+<div class="restaurant-result-container">
+  <ul class="restaurants">
+  </ul>
+</div>
+</div>
 </section>
 
 
