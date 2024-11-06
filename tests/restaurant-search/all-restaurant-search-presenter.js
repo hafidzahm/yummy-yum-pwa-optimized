@@ -11,9 +11,12 @@ class AllRestaurantSearchPresenter {
     });
   }
 
-  _searchRestaurants(latestQuery) {
+  async _searchRestaurants(latestQuery) {
     this._latestQuery = latestQuery;
-    this._allRestaurants.searchRestaurants(this._latestQuery);
+    const foundRestaurant = this._allRestaurants.searchRestaurants(
+      this._latestQuery
+    );
+    this._showFoundRestaurants(foundRestaurant);
   }
 
   _showFoundRestaurants(restaurants) {
