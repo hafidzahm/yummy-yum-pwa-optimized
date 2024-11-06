@@ -9,7 +9,8 @@ describe('Searching restaurants', () => {
     queryElement.value = query;
     queryElement.dispatchEvent(new Event('change'));
   };
-  beforeEach(() => {
+
+  const setRestaurantSearchContainer = () => {
     document.body.innerHTML = `
             <div id="restaurant-search-container">
               <input id="query" type="text">
@@ -19,11 +20,17 @@ describe('Searching restaurants', () => {
               </div>
             </div>
           `;
+  };
 
+  const constructPresenter = () => {
     spyOn(RestaurantSources, 'searchRestaurants');
     presenter = new AllRestaurantSearchPresenter({
       allRestaurants: RestaurantSources,
     });
+  };
+  beforeEach(() => {
+    setRestaurantSearchContainer();
+    constructPresenter();
   });
 
   it('should able to capture the query typed by the user', () => {
