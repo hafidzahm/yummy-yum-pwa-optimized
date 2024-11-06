@@ -85,4 +85,18 @@ describe('Searching restaurants', () => {
       document.querySelectorAll('.restaurant__name').item(0).textContent
     ).toEqual('-');
   });
+  it('should show the restaurant found by Home Section', () => {
+    RestaurantSources.searchRestaurants.mockImplementation((query) => {
+      if (query === 'resto a') {
+        return [
+          { id: 111, name: 'resto abc' },
+          { id: 222, name: 'ada juga resto abcde' },
+          { id: 333, name: 'ini juga boleh resto a' },
+        ];
+      }
+      return [];
+    });
+    searchRestaurants('resto a');
+    expect(document.querySelectorAll('.restaurant').length).toEqual(3);
+  });
 });
