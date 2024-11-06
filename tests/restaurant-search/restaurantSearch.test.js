@@ -125,4 +125,41 @@ describe('Searching restaurants', () => {
     searchRestaurants('resto a');
     expect(document.querySelectorAll('.restaurant').length).toEqual(3);
   });
+  it('should show the name of the restaurants found by search', (done) => {
+    document
+      .getElementById('restaurant-search-container')
+      .addEventListener('restaurants:searched:updated', () => {
+        const restaurantNames = document.querySelectorAll('.restaurant__name');
+        expect(restaurantNames.item(0).textContent).toEqual('resto abc');
+        expect(restaurantNames.item(1).textContent).toEqual(
+          'ada juga resto abcde'
+        );
+        expect(restaurantNames.item(2).textContent).toEqual(
+          'ini juga boleh resto a'
+        );
+        done();
+      });
+
+    RestaurantSources.searchRestaurants.mockImplementation((query) => {
+      if (query === 'resto a') {
+        return [
+          { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
+          {
+            id: 222,
+            name: 'ada juga resto abcde',
+            city: 'bwandung',
+            rating: 4.5,
+          },
+          {
+            id: 333,
+            name: 'ini juga boleh resto a',
+            city: 'bogorr',
+            rating: 2.2,
+          },
+        ];
+      }
+      return [];
+    });
+    searchRestaurants('resto a');
+  });
 });
