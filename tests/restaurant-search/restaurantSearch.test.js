@@ -1,9 +1,14 @@
 import { spyOn } from 'jest-mock';
-import RestaurantSearchPresenter from './restaurant-search-presenter';
+import AllRestaurantSearchPresenter from './all-restaurant-search-presenter';
 import RestaurantSources from '../../src/scripts/data/restaurant-sources';
 
 describe('Searching restaurants', () => {
   let presenter;
+  const searchRestaurants = (query) => {
+    const queryElement = document.getElementById('query');
+    queryElement.value = query;
+    queryElement.dispatchEvent(new Event('change'));
+  };
   beforeEach(() => {
     document.body.innerHTML = `
             <div id="restaurant-search-container">
@@ -16,23 +21,18 @@ describe('Searching restaurants', () => {
           `;
 
     spyOn(RestaurantSources, 'searchRestaurants');
-    presenter = new RestaurantSearchPresenter({
-      searchRestaurants: RestaurantSources,
+    presenter = new AllRestaurantSearchPresenter({
+      allRestaurants: RestaurantSources,
     });
   });
 
   it('should able to capture the query typed by the user', () => {
-    const queryElement = document.getElementById('query');
-    queryElement.value = 'restoran a';
-
-    queryElement.dispatchEvent(new Event('change'));
+    searchRestaurants('restoran a');
 
     expect(presenter.latestQuery).toEqual('restoran a');
   });
   it('should ask the model to search restaurants', () => {
-    const queryElement = document.getElementById('query');
-    queryElement.value = 'restoran a';
-    queryElement.dispatchEvent(new Event('change'));
+    searchRestaurants('restoran a');
 
     expect(RestaurantSources.searchRestaurants).toHaveBeenCalledWith(
       'restoran a'
