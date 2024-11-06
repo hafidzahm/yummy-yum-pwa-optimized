@@ -27,9 +27,12 @@ class AllRestaurantSearchPresenter {
       <li class="restaurant">
       <span class="restaurant__name">${restaurant.name || '-'}</span>
       </li>`),
-      '',
+      ''
     );
     document.querySelector('.restaurants').innerHTML = html;
+    document
+      .getElementById('restaurant-search-container')
+      .dispatchEvent(new Event('restaurants:searched:updated'));
   }
 
   get latestQuery() {
