@@ -48,10 +48,14 @@ describe('Searching restaurants', () => {
       {
         id: 1,
         name: 'Arjuna',
+        city: 'Bogor',
+        rating: 4.3,
       },
       {
         id: 2,
         name: 'Ayam Bakar Cianjur',
+        city: 'Cianjur',
+        rating: 4.5,
       },
     ]);
     expect(document.querySelectorAll('.restaurant').length).toEqual(2);
@@ -71,10 +75,14 @@ describe('Searching restaurants', () => {
       {
         id: 1,
         name: 'Arjuna',
+        city: 'Bogor',
+        rating: 4.3,
       },
       {
         id: 2,
         name: 'Ayam Bakar Cianjur',
+        city: 'Cianjur',
+        rating: 4.5,
       },
     ]);
     const restaurantNames = document.querySelectorAll('.restaurant__name');
@@ -97,9 +105,19 @@ describe('Searching restaurants', () => {
     RestaurantSources.searchRestaurants.mockImplementation((query) => {
       if (query === 'resto a') {
         return [
-          { id: 111, name: 'resto abc' },
-          { id: 222, name: 'ada juga resto abcde' },
-          { id: 333, name: 'ini juga boleh resto a' },
+          { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
+          {
+            id: 222,
+            name: 'ada juga resto abcde',
+            city: 'bwandung',
+            rating: 4.5,
+          },
+          {
+            id: 333,
+            name: 'ini juga boleh resto a',
+            city: 'bogorr',
+            rating: 2.2,
+          },
         ];
       }
       return [];
