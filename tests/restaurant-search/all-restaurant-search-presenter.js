@@ -26,6 +26,8 @@ class AllRestaurantSearchPresenter {
         carry.concat(`
       <li class="restaurant">
       <span class="restaurant__name">${restaurant.name || '-'}</span>
+      <span class="restaurant__city">${restaurant.city || '-'}</span>
+      <span class="restaurant__rating">${restaurant.rating || '-'}</span>
       </li>`),
       ''
     );
