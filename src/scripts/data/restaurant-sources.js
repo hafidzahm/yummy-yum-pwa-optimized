@@ -68,6 +68,16 @@ class RestaurantSources {
       hideLoading();
     }
   }
+
+  static async searchRestaurants(query) {
+    // try {
+    //   const response = await fetch(API_ENDPOINT.SEARCH(query));
+    //   const responseJson = await response.json();
+    //   return responseJson.restaurants;
+    // } catch (err) {
+    //   console.log(err);
+    // }
+  }
 }
 
 export default RestaurantSources;

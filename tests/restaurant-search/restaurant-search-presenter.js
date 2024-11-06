@@ -1,6 +1,7 @@
 class RestaurantSearchPresenter {
-  constructor() {
+  constructor({ searchRestaurants }) {
     this._listenToSearchRequestByUser();
+    this._searchRestaurants = searchRestaurants;
   }
 
   _listenToSearchRequestByUser() {
@@ -8,6 +9,7 @@ class RestaurantSearchPresenter {
     this._queryElement.addEventListener('change', (event) => {
       console.log(event);
       this._latestQuery = event.target.value;
+      this._searchRestaurants.searchRestaurants(this._latestQuery);
     });
   }
 
