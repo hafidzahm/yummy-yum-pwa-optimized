@@ -45,13 +45,24 @@ describe('Searching restaurants', () => {
     presenter._showFoundRestaurants([
       {
         id: 1,
-        name: 'Satu',
+        name: 'Arjuna',
       },
       {
         id: 2,
-        name: 'Dua',
+        name: 'Ayam Bakar Cianjur',
       },
     ]);
     expect(document.querySelectorAll('.restaurant').length).toEqual(2);
+  });
+  it('should show the name of the found restaurants', () => {
+    presenter._showFoundRestaurants([
+      {
+        id: 1,
+        name: 'Arjuna',
+      },
+    ]);
+    expect(
+      document.querySelectorAll('.restaurant__name').item(0).textContent
+    ).toEqual('Arjuna');
   });
 });
