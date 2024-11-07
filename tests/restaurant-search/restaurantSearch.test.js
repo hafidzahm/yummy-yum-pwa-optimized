@@ -285,5 +285,16 @@ describe('Searching restaurants', () => {
       allRestaurants.searchRestaurants.mockImplementation((query) => []);
       searchRestaurants('resto a');
     });
+    it('should not show any restaurants', (done) => {
+      document
+        .getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          expect(document.querySelectorAll('.restaurant').length).toEqual(0);
+          done();
+        });
+
+      allRestaurants.searchRestaurants.mockImplementation((query) => []);
+      searchRestaurants('resto a');
+    });
   });
 });
