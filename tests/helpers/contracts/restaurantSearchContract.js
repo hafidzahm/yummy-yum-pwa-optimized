@@ -1,5 +1,5 @@
 const itActsAsSearchModel = (allRestaurants) => {
-  it('should be able to search for movies', async () => {
+  it('should be able to search for restaurants', async () => {
     allRestaurants.putRestaurant({
       id: 1,
       name: 'resto a',

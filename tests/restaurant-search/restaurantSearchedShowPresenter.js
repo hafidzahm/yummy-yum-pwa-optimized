@@ -3,7 +3,8 @@ class RestaurantSearchedShowPresenter {
     this._view = view;
     this._allSearchedRestaurants = allSearchedRestaurants;
 
-    this._allSearchedRestaurants.getAllRestaurants();
+    const restaurants = this._allSearchedRestaurants.getAllRestaurants();
+    this._displayRestaurants(restaurants);
   }
 
   _displayRestaurants(restaurants) {

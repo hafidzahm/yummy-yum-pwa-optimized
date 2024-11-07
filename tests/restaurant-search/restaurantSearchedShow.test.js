@@ -40,5 +40,24 @@ describe('showing all searached restaurants', () => {
 
       expect(allSearchedRestaurants.getAllRestaurants).toHaveBeenCalledTimes(1);
     });
+    it('should show the information that hasil restoran tidak ada', (done) => {
+      document
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
+          expect(
+            document.querySelectorAll('.restaurant-item__not__found').length
+          ).toEqual(1);
+          done();
+        });
+
+      const allSearchedRestaurants = {
+        getAllRestaurants: jest.fn().mockImplementation(() => []),
+      };
+
+      new RestaurantSearchedShowPresenter({
+        view,
+        allSearchedRestaurants,
+      });
+    });
   });
 });
