@@ -2,9 +2,23 @@ import { spyOn } from 'jest-mock';
 import AllRestaurantSearchPresenter from './all-restaurant-search-presenter';
 import RestaurantSources from '../../src/scripts/data/restaurant-sources';
 
+class RestaurantSearchView {
+  getTemplate() {
+    return ` 
+       <div id="restaurant-search-container">
+              <input id="query" type="text">
+              <div class="restaurant-result-container">
+                <ul class="restaurants">
+                </ul>
+              </div>
+            </div>`;
+  }
+}
+
 describe('Searching restaurants', () => {
   let presenter;
   let allRestaurants;
+  let view;
   const searchRestaurants = (query) => {
     const queryElement = document.getElementById('query');
     queryElement.value = query;
@@ -12,15 +26,8 @@ describe('Searching restaurants', () => {
   };
 
   const setRestaurantSearchContainer = () => {
-    document.body.innerHTML = `
-            <div id="restaurant-search-container">
-              <input id="query" type="text">
-              <div class="restaurant-result-container">
-                <ul class="restaurants">
-                </ul>
-              </div>
-            </div>
-          `;
+    view = new RestaurantSearchView();
+    document.body.innerHTML = view.getTemplate();
   };
 
   const constructPresenter = () => {
