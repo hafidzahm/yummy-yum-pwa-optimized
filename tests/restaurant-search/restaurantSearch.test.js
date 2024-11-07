@@ -4,6 +4,7 @@ import RestaurantSources from '../../src/scripts/data/restaurant-sources';
 
 describe('Searching restaurants', () => {
   let presenter;
+  let allRestaurants;
   const searchRestaurants = (query) => {
     const queryElement = document.getElementById('query');
     queryElement.value = query;
@@ -23,9 +24,12 @@ describe('Searching restaurants', () => {
   };
 
   const constructPresenter = () => {
-    spyOn(RestaurantSources, 'searchRestaurants');
+    allRestaurants = {
+      getAllRestaurants: jest.fn(),
+      searchRestaurants: jest.fn(),
+    };
     presenter = new AllRestaurantSearchPresenter({
-      allRestaurants: RestaurantSources,
+      allRestaurants,
     });
   };
   beforeEach(() => {
@@ -35,16 +39,16 @@ describe('Searching restaurants', () => {
 
   describe('when query is not empty', () => {
     it('should able to capture the query typed by the user', () => {
-      RestaurantSources.searchRestaurants.mockImplementation(() => []);
+      allRestaurants.searchRestaurants.mockImplementation(() => []);
       searchRestaurants('restoran a');
 
       expect(presenter.latestQuery).toEqual('restoran a');
     });
     it('should ask the model to search restaurants', () => {
-      RestaurantSources.searchRestaurants.mockImplementation(() => []);
+      allRestaurants.searchRestaurants.mockImplementation(() => []);
       searchRestaurants('restoran a');
 
-      expect(RestaurantSources.searchRestaurants).toHaveBeenCalledWith(
+      expect(allRestaurants.searchRestaurants).toHaveBeenCalledWith(
         'restoran a'
       );
     });
@@ -108,9 +112,10 @@ describe('Searching restaurants', () => {
         .getElementById('restaurant-search-container')
         .addEventListener('restaurants:searched:updated', () => {
           expect(document.querySelectorAll('.restaurant').length).toEqual(3);
+
           done();
         });
-      RestaurantSources.searchRestaurants.mockImplementation((query) => {
+      allRestaurants.searchRestaurants.mockImplementation((query) => {
         if (query === 'resto a') {
           return [
             { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
@@ -131,7 +136,6 @@ describe('Searching restaurants', () => {
         return [];
       });
       searchRestaurants('resto a');
-      expect(document.querySelectorAll('.restaurant').length).toEqual(3);
     });
     it('should show the name of the restaurants found by search', (done) => {
       document
@@ -149,7 +153,7 @@ describe('Searching restaurants', () => {
           done();
         });
 
-      RestaurantSources.searchRestaurants.mockImplementation((query) => {
+      allRestaurants.searchRestaurants.mockImplementation((query) => {
         if (query === 'resto a') {
           return [
             { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
@@ -183,7 +187,7 @@ describe('Searching restaurants', () => {
           done();
         });
 
-      RestaurantSources.searchRestaurants.mockImplementation((query) => {
+      allRestaurants.searchRestaurants.mockImplementation((query) => {
         if (query === 'resto a') {
           return [
             { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
@@ -218,7 +222,7 @@ describe('Searching restaurants', () => {
           done();
         });
 
-      RestaurantSources.searchRestaurants.mockImplementation((query) => {
+      allRestaurants.searchRestaurants.mockImplementation((query) => {
         if (query === 'resto a') {
           return [
             { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
@@ -244,6 +248,7 @@ describe('Searching restaurants', () => {
 
   describe('when query is empty', () => {
     it('should capture the query as empty', () => {
+      allRestaurants.getAllRestaurants.mockImplementation(() => []);
       searchRestaurants(' ');
       expect(presenter.latestQuery.length).toEqual(0);
 
@@ -258,6 +263,11 @@ describe('Searching restaurants', () => {
 
       searchRestaurants('\t');
       expect(presenter.latestQuery.length).toEqual(0);
+    });
+    it('should show all restaurants', () => {
+      allRestaurants.getAllRestaurants.mockImplementation(() => []);
+      searchRestaurants('   ');
+      expect(allRestaurants.getAllRestaurants).toHaveBeenCalled();
     });
   });
 });

@@ -13,13 +13,20 @@ class AllRestaurantSearchPresenter {
 
   async _searchRestaurants(latestQuery) {
     this._latestQuery = latestQuery.trim();
-    const foundRestaurant = this._allRestaurants.searchRestaurants(
-      this._latestQuery
-    );
-    this._showFoundRestaurants(foundRestaurant);
+    let foundRestaurants;
+    if (this.latestQuery.length > 0) {
+      foundRestaurants = await this._allRestaurants.searchRestaurants(
+        this.latestQuery
+      );
+    } else {
+      foundRestaurants = await this._allRestaurants.getAllRestaurants();
+    }
+
+    this._showFoundRestaurants(foundRestaurants);
   }
 
   _showFoundRestaurants(restaurants) {
+    if (!restaurants) return;
     const html = restaurants.reduce(
       (carry, restaurant) =>
         carry.concat(`
