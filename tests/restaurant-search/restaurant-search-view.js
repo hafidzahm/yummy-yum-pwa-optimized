@@ -3,11 +3,22 @@ class RestaurantSearchView {
     return ` 
          <div id="restaurant-search-container">
                 <input id="query" type="text">
+
                 <div class="restaurant-result-container">
                   <ul class="restaurants">
                   </ul>
                 </div>
               </div>`;
+  }
+
+  getSearchedRestaurantsTemplate() {
+    return `
+      <div class="content">
+        <h2 class="content__heading">Pencarian restoran</h2>
+        <div id="restaurants" class="restaurants">
+        </div>
+      </div>
+    `;
   }
 
   showRestaurants(restaurants) {
@@ -31,6 +42,11 @@ class RestaurantSearchView {
     document
       .getElementById('restaurant-search-container')
       .dispatchEvent(new Event('restaurants:searched:updated'));
+  }
+
+  showSearchedRestaurants(restaurants) {
+    document.getElementById('restaurants').innerHTML =
+      '<div class="restaurant-item__not__found"></div>';
   }
 
   runWhenUserIsSearching(callback) {
