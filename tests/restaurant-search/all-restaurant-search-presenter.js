@@ -26,17 +26,22 @@ class AllRestaurantSearchPresenter {
   }
 
   _showFoundRestaurants(restaurants) {
-    if (!restaurants) return;
-    const html = restaurants.reduce(
-      (carry, restaurant) =>
-        carry.concat(`
-      <li class="restaurant">
-      <span class="restaurant__name">${restaurant.name || '-'}</span>
-      <span class="restaurant__city">${restaurant.city || '-'}</span>
-      <span class="restaurant__rating">${restaurant.rating || '-'}</span>
-      </li>`),
-      ''
-    );
+    let html;
+    if (restaurants.length > 0) {
+      html = restaurants.reduce(
+        (carry, restaurant) =>
+          carry.concat(`
+        <li class="restaurant">
+        <span class="restaurant__name">${restaurant.name || '-'}</span>
+        <span class="restaurant__city">${restaurant.city || '-'}</span>
+        <span class="restaurant__rating">${restaurant.rating || '-'}</span>
+        </li>`),
+        ''
+      );
+    } else {
+      html = '<div class="restaurants__not__found">Film tidak ditemukan</div>';
+    }
+
     document.querySelector('.restaurants').innerHTML = html;
     document
       .getElementById('restaurant-search-container')

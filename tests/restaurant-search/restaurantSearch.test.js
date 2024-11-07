@@ -269,5 +269,18 @@ describe('Searching restaurants', () => {
       searchRestaurants('   ');
       expect(allRestaurants.getAllRestaurants).toHaveBeenCalled();
     });
+    it('should show the empty message', (done) => {
+      document
+        .getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          expect(
+            document.querySelectorAll('.restaurants__not__found').length
+          ).toEqual(1);
+          done();
+        });
+
+      allRestaurants.searchRestaurants.mockImplementation((query) => []);
+      searchRestaurants('resto a');
+    });
   });
 });
