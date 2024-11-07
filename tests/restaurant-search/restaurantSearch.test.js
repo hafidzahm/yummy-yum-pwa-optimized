@@ -269,6 +269,9 @@ describe('Searching restaurants', () => {
       searchRestaurants('   ');
       expect(allRestaurants.getAllRestaurants).toHaveBeenCalled();
     });
+  });
+
+  describe('when no restaurants could be found', () => {
     it('should show the empty message', (done) => {
       document
         .getElementById('restaurant-search-container')
