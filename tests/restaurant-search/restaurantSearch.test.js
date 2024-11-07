@@ -49,62 +49,7 @@ describe('Searching restaurants', () => {
         'restoran a'
       );
     });
-    it('should show the found restaurants', () => {
-      presenter._showFoundRestaurants([{ id: 1 }]);
-      expect(document.querySelectorAll('.restaurant').length).toEqual(1);
-
-      presenter._showFoundRestaurants([
-        {
-          id: 1,
-          name: 'Arjuna',
-          city: 'Bogor',
-          rating: 4.3,
-        },
-        {
-          id: 2,
-          name: 'Ayam Bakar Cianjur',
-          city: 'Cianjur',
-          rating: 4.5,
-        },
-      ]);
-      expect(document.querySelectorAll('.restaurant').length).toEqual(2);
-    });
-    it('should show the name of the found restaurants', () => {
-      presenter._showFoundRestaurants([
-        {
-          id: 1,
-          name: 'Arjuna',
-        },
-      ]);
-      expect(
-        document.querySelectorAll('.restaurant__name').item(0).textContent
-      ).toEqual('Arjuna');
-
-      presenter._showFoundRestaurants([
-        {
-          id: 1,
-          name: 'Arjuna',
-          city: 'Bogor',
-          rating: 4.3,
-        },
-        {
-          id: 2,
-          name: 'Ayam Bakar Cianjur',
-          city: 'Cianjur',
-          rating: 4.5,
-        },
-      ]);
-      const restaurantNames = document.querySelectorAll('.restaurant__name');
-      expect(restaurantNames.item(0).textContent).toEqual('Arjuna');
-      expect(restaurantNames.item(1).textContent).toEqual('Ayam Bakar Cianjur');
-    });
-    it('should show - for found restaurant without name', () => {
-      presenter._showFoundRestaurants([{ id: 1 }]);
-      expect(
-        document.querySelectorAll('.restaurant__name').item(0).textContent
-      ).toEqual('-');
-    });
-    it('should show the restaurant found by Home Section', (done) => {
+    it('should show the restaurant found by search', (done) => {
       document
         .getElementById('restaurant-search-container')
         .addEventListener('restaurants:searched:updated', () => {
@@ -239,6 +184,27 @@ describe('Searching restaurants', () => {
         }
         return [];
       });
+      searchRestaurants('resto a');
+    });
+    it('should show - when the restaurant returned does not contain a name', (done) => {
+      document
+        .getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          const restaurantNames =
+            document.querySelectorAll('.restaurant__name');
+          expect(restaurantNames.item(0).textContent).toEqual('-');
+
+          done();
+        });
+
+      allRestaurants.searchRestaurants.mockImplementation((query) => {
+        if (query === 'resto a') {
+          return [{ id: 444 }];
+        }
+
+        return [];
+      });
+
       searchRestaurants('resto a');
     });
   });
