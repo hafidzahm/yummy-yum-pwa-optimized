@@ -80,12 +80,13 @@ class RestaurantSources {
       const jammedRestaurantName = loweredCaseRestaurantName.replace(/\s/g, '');
       const jammedRestaurantCity = loweredCaseRestaurantCity.replace(/\s/g, '');
 
-
       const loweredCaseQuery = query.toLowerCase();
       const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
 
-     
-      return jammedRestaurantCity.indexOf(jammedQuery) !== -1 || jammedRestaurantName.indexOf(jammedQuery) !== -1;
+      return (
+        jammedRestaurantCity.indexOf(jammedQuery) !== -1 ||
+        jammedRestaurantName.indexOf(jammedQuery) !== -1
+      );
     });
   }
 }

@@ -33,26 +33,24 @@ const SearchedRestaurantArray = {
   deleteRestaurant(id) {
     // cara boros menghapus resto dengan meng-copy resto yang ada
     // kecuali resto dengan id == id
-    allRestaurants = allRestaurants.filter(
-      (restaurant) => restaurant.id != id
-    );
+    allRestaurants = allRestaurants.filter((restaurant) => restaurant.id != id);
   },
 
   searchRestaurants(query) {
-    return this.getAllRestaurants()
-      .filter((restaurants) => {
-        const loweredCaseRestaurantName = (restaurants.name || '-').toLowerCase();
-        const loweredCaseRestaurantCity = (restaurants.city || '-').toLowerCase();
-        const jammedRestaurantName = loweredCaseRestaurantName.replace(/\s/g, '');
-        const jammedRestaurantCity = loweredCaseRestaurantCity.replace(/\s/g, '');
-  
-  
-        const loweredCaseQuery = query.toLowerCase();
-        const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
-  
-       
-        return jammedRestaurantCity.indexOf(jammedQuery) !== -1 || jammedRestaurantName.indexOf(jammedQuery) !== -1;
-      });
+    return this.getAllRestaurants().filter((restaurants) => {
+      const loweredCaseRestaurantName = (restaurants.name || '-').toLowerCase();
+      const loweredCaseRestaurantCity = (restaurants.city || '-').toLowerCase();
+      const jammedRestaurantName = loweredCaseRestaurantName.replace(/\s/g, '');
+      const jammedRestaurantCity = loweredCaseRestaurantCity.replace(/\s/g, '');
+
+      const loweredCaseQuery = query.toLowerCase();
+      const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
+
+      return (
+        jammedRestaurantCity.indexOf(jammedQuery) !== -1 ||
+        jammedRestaurantName.indexOf(jammedQuery) !== -1
+      );
+    });
   },
 };
 
