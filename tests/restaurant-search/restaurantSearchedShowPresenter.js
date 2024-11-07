@@ -1,6 +1,9 @@
 class RestaurantSearchedShowPresenter {
-  constructor({ view }) {
+  constructor({ view, allSearchedRestaurants }) {
     this._view = view;
+    this._allSearchedRestaurants = allSearchedRestaurants;
+
+    this._allSearchedRestaurants.getAllRestaurants();
   }
 
   _displayRestaurants(restaurants) {
