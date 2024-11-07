@@ -46,6 +46,7 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
       { id: 3 },
     ]);
   });
+  
 };
 
 export { itActsAsFavoriteRestaurantModel };
