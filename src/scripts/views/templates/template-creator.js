@@ -117,7 +117,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 const createRestaurantItemTemplate = (restaurants) => `
 
-<div id="${restaurants.id}" class="card-item__container restaurant">
+<div id="${restaurants.id}" class="card-item__container restaurant-item">
           <img id="card-img" src="${CONFIG.BASE_URL_IMG + restaurants.pictureId} " alt='Gambar dari restoran ${restaurants.name || '-'}'>
           <h1 class="card-item__name restaurant__name" id="card-item__name"><a href="#/detail/${restaurants.id}">${restaurants.name || '-'}</a></h1>
 
