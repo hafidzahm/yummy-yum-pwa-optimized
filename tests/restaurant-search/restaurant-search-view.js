@@ -1,3 +1,4 @@
+import { createRestaurantItemTemplate } from '../../src/scripts/views/templates/template-creator';
 class RestaurantSearchView {
   getTemplate() {
     return ` 
@@ -45,11 +46,20 @@ class RestaurantSearchView {
   }
 
   showSearchedRestaurants(restaurants) {
-    document.getElementById('restaurants').innerHTML =
-      '<div class="restaurant-item__not__found"></div>';
-    document
-      .getElementById('restaurants')
-      .dispatchEvent(new Event('restaurants:updated'));
+    const restaurantsContainer = document.getElementById('restaurants'); // Get the container
+    restaurantsContainer.innerHTML = ''; // Clear previous content
+
+    if (restaurants.length > 0) {
+      restaurants.forEach((restaurant) => {
+        const restaurantElement = createRestaurantItemTemplate(restaurant);
+        restaurantsContainer.innerHTML += restaurantElement;
+      });
+    } else {
+      restaurantsContainer.innerHTML = '<div class="restaurant-item__not__found">Tidak ada hasil restoran</div>';
+    }
+    console.log(restaurants);
+
+    restaurantsContainer.dispatchEvent(new Event('restaurants:updated'));
   }
 
   runWhenUserIsSearching(callback) {

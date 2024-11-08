@@ -116,7 +116,8 @@ const createRestaurantDetailTemplate = (restaurant) => `
 `;
 
 const createRestaurantItemTemplate = (restaurants) => `
-<div id="${restaurants.id}" class="card-item__container">
+
+<div id="${restaurants.id}" class="card-item__container restaurant">
           <img id="card-img" src="${CONFIG.BASE_URL_IMG + restaurants.pictureId} " alt='Gambar dari restoran ${restaurants.name}'>
           <h1 class="card-item__name" id="card-item__name"><a href="#/detail/${restaurants.id}">${restaurants.name}</a></h1>
 
@@ -135,6 +136,7 @@ const createRestaurantItemTemplate = (restaurants) => `
 
           <p class="card-item__description" id="card-item__description">${restaurants.description}</p>
       </div>
+
 `;
 
 const createButtonFavoriteRestaurantTemplate = () => `
