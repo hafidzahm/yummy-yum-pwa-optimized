@@ -36,7 +36,8 @@ class RestaurantSearchView {
         ''
       );
     } else {
-      html = '<div class="restaurants__not__found">Film tidak ditemukan</div>';
+      html = this._getEmptyMovieTemplate();
+
     }
 
     document.querySelector('.restaurants').innerHTML = html;
@@ -44,6 +45,8 @@ class RestaurantSearchView {
       .getElementById('restaurant-search-container')
       .dispatchEvent(new Event('restaurants:searched:updated'));
   }
+
+
 
   showSearchedRestaurants(restaurants) {
     const restaurantsContainer = document.getElementById('restaurants'); // Get the container
@@ -56,10 +59,16 @@ class RestaurantSearchView {
       });
     } else {
       restaurantsContainer.innerHTML =
-        '<div class="restaurant-item__not__found">Tidak ada hasil restoran</div>';
+      this._getEmptyMovieTemplate();
     }
 
     restaurantsContainer.dispatchEvent(new Event('restaurants:updated'));
+  }
+
+  _getEmptyMovieTemplate() {
+    return `
+    <div class="restaurant-item__not__found">Tidak ada hasil restoran</div>
+    `;
   }
 
   runWhenUserIsSearching(callback) {
