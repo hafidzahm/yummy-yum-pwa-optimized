@@ -51,8 +51,8 @@ describe('Searching restaurants', () => {
     });
     it('should show the restaurant found by search', (done) => {
       document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
           expect(document.querySelectorAll('.restaurant-item').length).toEqual(
             3
           );
@@ -83,8 +83,8 @@ describe('Searching restaurants', () => {
     });
     it('should show the name of the restaurants found by search', (done) => {
       document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
           const restaurantNames =
             document.querySelectorAll('.restaurant__name');
           expect(restaurantNames.item(0).textContent).toEqual('resto abc');
@@ -190,8 +190,8 @@ describe('Searching restaurants', () => {
     // });
     it('should show - when the restaurant returned does not contain a name', (done) => {
       document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
           const restaurantNames =
             document.querySelectorAll('.restaurant__name');
           expect(restaurantNames.item(0).textContent).toEqual('-');
@@ -239,8 +239,8 @@ describe('Searching restaurants', () => {
   describe('when no restaurants could be found', () => {
     it('should show the empty message', (done) => {
       document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
           expect(
             document.querySelectorAll('.restaurant-item__not__found').length
           ).toEqual(1);
@@ -252,8 +252,8 @@ describe('Searching restaurants', () => {
     });
     it('should not show any restaurants', (done) => {
       document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
           expect(document.querySelectorAll('.restaurant-item').length).toEqual(
             0
           );
