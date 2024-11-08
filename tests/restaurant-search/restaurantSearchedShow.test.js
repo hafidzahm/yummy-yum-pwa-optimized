@@ -51,7 +51,9 @@ describe('showing all searached restaurants', () => {
       document
         .getElementById('restaurants')
         .addEventListener('restaurants:updated', () => {
-          expect(document.querySelectorAll('.restaurant-item').length).toEqual(2);
+          expect(document.querySelectorAll('.restaurant-item').length).toEqual(
+            2
+          );
           done();
         });
       const allSearchedRestaurants = {

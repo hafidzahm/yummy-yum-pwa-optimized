@@ -5,8 +5,8 @@ class RestaurantSearchView {
          <div id="restaurant-search-container">
                 <input id="query" type="text">
 
-                <div class="restaurant-result-container">
-                  <ul class="restaurants">
+                <div class="restaurant-result-container" id="restaurants" >
+                  <ul class="restaurants" >
                   </ul>
                 </div>
               </div>`;
@@ -38,6 +38,9 @@ class RestaurantSearchView {
     document
       .getElementById('restaurant-search-container')
       .dispatchEvent(new Event('restaurants:searched:updated'));
+    document
+      .getElementById('restaurants')
+      .dispatchEvent(new Event('restaurants:updated'));
   }
 
   showSearchedRestaurants(restaurants) {

@@ -41,7 +41,7 @@ const Home = {
 
 <div id="restaurant-search-container">
 <input id="query" type="text">
-<div class="restaurant-result-container">
+<div class="restaurant-result-container" id="restaurants">
   <ul class="restaurants">
   </ul>
 </div>
