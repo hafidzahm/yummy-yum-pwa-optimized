@@ -22,10 +22,6 @@ class RestaurantSearchView {
     `;
   }
 
-  showRestaurants(restaurants) {
-    this.showSearchedRestaurants(restaurants)
-  }
-
   _showFoundRestaurants(restaurants) {
     this._view.showSearchedRestaurants(restaurants)
   }
