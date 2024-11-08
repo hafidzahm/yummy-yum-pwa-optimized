@@ -2,14 +2,13 @@ import { createRestaurantItemTemplate } from '../../src/scripts/views/templates/
 class RestaurantSearchView {
   getTemplate() {
     return ` 
-         <div id="restaurant-search-container">
-                <input id="query" type="text">
-
-                <div class="restaurant-result-container" id="restaurants" >
-                  <ul class="restaurants" >
-                  </ul>
-                </div>
-              </div>`;
+    <div class="content">
+      <input id="query" type="text">
+      <h2 class="content__heading">Pencarian restoran</h2>
+ 
+      <div id="restaurants" class="restaurants">
+      </div>
+    </div>`;
   }
 
   getSearchedRestaurantsTemplate() {
@@ -23,7 +22,7 @@ class RestaurantSearchView {
   }
 
   _showFoundRestaurants(restaurants) {
-    this._view.showSearchedRestaurants(restaurants)
+    this._view.showSearchedRestaurants(restaurants);
   }
 
   showSearchedRestaurants(restaurants) {
