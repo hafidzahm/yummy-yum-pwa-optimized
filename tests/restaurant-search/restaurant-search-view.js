@@ -23,21 +23,11 @@ class RestaurantSearchView {
   }
 
   showRestaurants(restaurants) {
-    let html;
-    if (restaurants.length > 0) {
-      html = restaurants.reduce(
-        (carry, restaurants) =>
-          carry.concat(createRestaurantItemTemplate(restaurants)),
-        ''
-      );
-    } else {
-      html = this._getEmptyMovieTemplate();
-    }
+    this.showSearchedRestaurants(restaurants)
+  }
 
-    document.querySelector('.restaurants').innerHTML = html;
-    document
-      .getElementById('restaurants')
-      .dispatchEvent(new Event('restaurants:updated'));
+  _showFoundRestaurants(restaurants) {
+    this._view.showSearchedRestaurants(restaurants)
   }
 
   showSearchedRestaurants(restaurants) {
