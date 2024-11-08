@@ -62,30 +62,31 @@ describe('showing all searached restaurants', () => {
   });
 
   describe('when restaurants exist', () => {
-  });
-  it('should render the restaurants', () => {
-    const allSearchedRestaurants = {
-      getAllRestaurants: jest.fn().mockImplementation(() => []),
-    };
-    const presenter = new RestaurantSearchedShowPresenter({
-      view,
-      allSearchedRestaurants,
+    it('should render the restaurants', () => {
+      const allSearchedRestaurants = {
+        getAllRestaurants: jest.fn().mockImplementation(() => []),
+      };
+      const presenter = new RestaurantSearchedShowPresenter({
+        view,
+        allSearchedRestaurants,
+      });
+  
+      presenter._displayRestaurants([
+        {
+          id: 111,
+          name: 'resto abc',
+          city: 'ABC',
+          rating: 3.4,
+        },
+        {
+          id: 222,
+          name: 'ada juga resto abcde',
+          city: 'bwandung',
+          rating: 4.5,
+        },
+      ]);
+      expect(document.querySelectorAll('.restaurant').length).toEqual(2);
     });
-
-    presenter._displayRestaurants([
-      {
-        id: 111,
-        name: 'resto abc',
-        city: 'ABC',
-        rating: 3.4,
-      },
-      {
-        id: 222,
-        name: 'ada juga resto abcde',
-        city: 'bwandung',
-        rating: 4.5,
-      },
-    ]);
-    expect(document.querySelectorAll('.restaurant').length).toEqual(2);
   });
+
 });
