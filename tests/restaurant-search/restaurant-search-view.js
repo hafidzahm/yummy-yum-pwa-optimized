@@ -55,9 +55,9 @@ class RestaurantSearchView {
         restaurantsContainer.innerHTML += restaurantElement;
       });
     } else {
-      restaurantsContainer.innerHTML = '<div class="restaurant-item__not__found">Tidak ada hasil restoran</div>';
+      restaurantsContainer.innerHTML =
+        '<div class="restaurant-item__not__found">Tidak ada hasil restoran</div>';
     }
-    console.log(restaurants);
 
     restaurantsContainer.dispatchEvent(new Event('restaurants:updated'));
   }

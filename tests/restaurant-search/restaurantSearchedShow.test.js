@@ -70,7 +70,7 @@ describe('showing all searached restaurants', () => {
         view,
         allSearchedRestaurants,
       });
-  
+
       presenter._displayRestaurants([
         {
           id: 111,
@@ -87,6 +87,34 @@ describe('showing all searached restaurants', () => {
       ]);
       expect(document.querySelectorAll('.restaurant').length).toEqual(2);
     });
-  });
+    it('should show the restaurants', (done) => {
+      document
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
+          expect(document.querySelectorAll('.restaurant').length).toEqual(2);
+          done();
+        });
+      const allSearchedRestaurants = {
+        getAllRestaurants: jest.fn().mockImplementation(() => [
+          {
+            id: 111,
+            name: 'resto abc',
+            city: 'ABC',
+            rating: 3.4,
+          },
+          {
+            id: 222,
+            name: 'ada juga resto abcde',
+            city: 'bwandung',
+            rating: 4.5,
+          },
+        ]),
+      };
 
+      new RestaurantSearchedShowPresenter({
+        view,
+        allSearchedRestaurants,
+      });
+    });
+  });
 });
