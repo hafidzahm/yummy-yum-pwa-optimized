@@ -26,18 +26,12 @@ class RestaurantSearchView {
     let html;
     if (restaurants.length > 0) {
       html = restaurants.reduce(
-        (carry, restaurant) =>
-          carry.concat(`
-          <li class="restaurant">
-          <span class="restaurant__name">${restaurant.name || '-'}</span>
-          <span class="restaurant__city">${restaurant.city || '-'}</span>
-          <span class="restaurant__rating">${restaurant.rating || '-'}</span>
-          </li>`),
+        (carry, restaurants) =>
+          carry.concat(createRestaurantItemTemplate(restaurants)),
         ''
       );
     } else {
       html = this._getEmptyMovieTemplate();
-
     }
 
     document.querySelector('.restaurants').innerHTML = html;
@@ -45,8 +39,6 @@ class RestaurantSearchView {
       .getElementById('restaurant-search-container')
       .dispatchEvent(new Event('restaurants:searched:updated'));
   }
-
-
 
   showSearchedRestaurants(restaurants) {
     const restaurantsContainer = document.getElementById('restaurants'); // Get the container
@@ -58,8 +50,7 @@ class RestaurantSearchView {
         restaurantsContainer.innerHTML += restaurantElement;
       });
     } else {
-      restaurantsContainer.innerHTML =
-      this._getEmptyMovieTemplate();
+      restaurantsContainer.innerHTML = this._getEmptyMovieTemplate();
     }
 
     restaurantsContainer.dispatchEvent(new Event('restaurants:updated'));

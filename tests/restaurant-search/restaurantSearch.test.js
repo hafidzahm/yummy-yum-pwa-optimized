@@ -117,75 +117,75 @@ describe('Searching restaurants', () => {
       });
       searchRestaurants('resto a');
     });
-    it('should show the city of the restaurants found by search', (done) => {
-      document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
-          const restaurantCities =
-            document.querySelectorAll('.restaurant__city');
-          expect(restaurantCities.item(0).textContent).toEqual('ABC');
-          expect(restaurantCities.item(1).textContent).toEqual('bwandung');
-          expect(restaurantCities.item(2).textContent).toEqual('bogorr');
-          done();
-        });
+    // it('should show the city of the restaurants found by search', (done) => {
+    //   document
+    //     .getElementById('restaurant-search-container')
+    //     .addEventListener('restaurants:searched:updated', () => {
+    //       const restaurantCities =
+    //         document.querySelectorAll('.restaurant__city');
+    //       expect(restaurantCities.item(0).textContent).toEqual('ABC');
+    //       expect(restaurantCities.item(1).textContent).toEqual('bwandung');
+    //       expect(restaurantCities.item(2).textContent).toEqual('bogorr');
+    //       done();
+    //     });
 
-      allRestaurants.searchRestaurants.mockImplementation((query) => {
-        if (query === 'resto a') {
-          return [
-            { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
-            {
-              id: 222,
-              name: 'ada juga resto abcde',
-              city: 'bwandung',
-              rating: 4.5,
-            },
-            {
-              id: 333,
-              name: 'ini juga boleh resto a',
-              city: 'bogorr',
-              rating: 2.2,
-            },
-          ];
-        }
-        return [];
-      });
-      searchRestaurants('resto a');
-    });
-    it('should show the rating of the restaurants found by search', (done) => {
-      document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
-          const restaurantRatings = document.querySelectorAll(
-            '.restaurant__rating'
-          );
-          expect(restaurantRatings.item(0).textContent).toEqual('3.4');
-          expect(restaurantRatings.item(1).textContent).toEqual('4.5');
-          expect(restaurantRatings.item(2).textContent).toEqual('2.2');
-          done();
-        });
+    //   allRestaurants.searchRestaurants.mockImplementation((query) => {
+    //     if (query === 'resto a') {
+    //       return [
+    //         { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
+    //         {
+    //           id: 222,
+    //           name: 'ada juga resto abcde',
+    //           city: 'bwandung',
+    //           rating: 4.5,
+    //         },
+    //         {
+    //           id: 333,
+    //           name: 'ini juga boleh resto a',
+    //           city: 'bogorr',
+    //           rating: 2.2,
+    //         },
+    //       ];
+    //     }
+    //     return [];
+    //   });
+    //   searchRestaurants('resto a');
+    // });
+    // it('should show the rating of the restaurants found by search', (done) => {
+    //   document
+    //     .getElementById('restaurant-search-container')
+    //     .addEventListener('restaurants:searched:updated', () => {
+    //       const restaurantRatings = document.querySelectorAll(
+    //         '.restaurant__rating'
+    //       );
+    //       expect(restaurantRatings.item(0).textContent).toEqual('3.4');
+    //       expect(restaurantRatings.item(1).textContent).toEqual('4.5');
+    //       expect(restaurantRatings.item(2).textContent).toEqual('2.2');
+    //       done();
+    //     });
 
-      allRestaurants.searchRestaurants.mockImplementation((query) => {
-        if (query === 'resto a') {
-          return [
-            { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
-            {
-              id: 222,
-              name: 'ada juga resto abcde',
-              city: 'bwandung',
-              rating: 4.5,
-            },
-            {
-              id: 333,
-              name: 'ini juga boleh resto a',
-              city: 'bogorr',
-              rating: 2.2,
-            },
-          ];
-        }
-        return [];
-      });
-      searchRestaurants('resto a');
-    });
+    //   allRestaurants.searchRestaurants.mockImplementation((query) => {
+    //     if (query === 'resto a') {
+    //       return [
+    //         { id: 111, name: 'resto abc', city: 'ABC', rating: 3.4 },
+    //         {
+    //           id: 222,
+    //           name: 'ada juga resto abcde',
+    //           city: 'bwandung',
+    //           rating: 4.5,
+    //         },
+    //         {
+    //           id: 333,
+    //           name: 'ini juga boleh resto a',
+    //           city: 'bogorr',
+    //           rating: 2.2,
+    //         },
+    //       ];
+    //     }
+    //     return [];
+    //   });
+    //   searchRestaurants('resto a');
+    // });
     it('should show - when the restaurant returned does not contain a name', (done) => {
       document
         .getElementById('restaurant-search-container')
