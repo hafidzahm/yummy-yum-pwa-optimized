@@ -36,9 +36,6 @@ class RestaurantSearchView {
 
     document.querySelector('.restaurants').innerHTML = html;
     document
-      .getElementById('restaurant-search-container')
-      .dispatchEvent(new Event('restaurants:searched:updated'));
-    document
       .getElementById('restaurants')
       .dispatchEvent(new Event('restaurants:updated'));
   }
