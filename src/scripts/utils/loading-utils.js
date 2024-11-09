@@ -12,6 +12,6 @@ export function sleep(response = null) {
   return new Promise((resolve) =>
     setTimeout(() => {
       resolve(response);
-    }, 1000)
+    }, 1)
   );
 }
