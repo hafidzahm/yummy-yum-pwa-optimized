@@ -70,13 +70,24 @@ class RestaurantSources {
   }
 
   static async searchRestaurants(query) {
-    // try {
-    //   const response = await fetch(API_ENDPOINT.SEARCH(query));
-    //   const responseJson = await response.json();
-    //   return responseJson.restaurants;
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    const response = await fetch(API_ENDPOINT.SEARCH(query));
+    const responseJson = await response.json();
+    const searchedJson = responseJson.restaurants;
+
+    return searchedJson.filter((restaurants) => {
+      const loweredCaseRestaurantName = (restaurants.name || '-').toLowerCase();
+      const loweredCaseRestaurantCity = (restaurants.city || '-').toLowerCase();
+      const jammedRestaurantName = loweredCaseRestaurantName.replace(/\s/g, '');
+      const jammedRestaurantCity = loweredCaseRestaurantCity.replace(/\s/g, '');
+
+      const loweredCaseQuery = query.toLowerCase();
+      const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
+
+      return (
+        jammedRestaurantCity.indexOf(jammedQuery) !== -1 ||
+        jammedRestaurantName.indexOf(jammedQuery) !== -1
+      );
+    });
   }
 }
 
