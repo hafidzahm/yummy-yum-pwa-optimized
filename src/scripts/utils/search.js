@@ -15,6 +15,8 @@ const SearchHandler = async () => {
     return;
   }
 
+  console.log("input: ", searchInput.value)
+
   try {
     const searchData = await RestaurantSources.searchRestaurants(
       searchInput.value
@@ -27,6 +29,8 @@ const SearchHandler = async () => {
         searchResultsContainer.innerHTML += element;
       });
     }
+
+    console.table("searchedData: ", searchData)
   } catch (err) {
     console.log(err);
   }
