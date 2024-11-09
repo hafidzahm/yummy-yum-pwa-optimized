@@ -2,7 +2,6 @@ import RestaurantSources from '../../data/restaurant-sources';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 import { SearchHandler } from '../../utils/search';
 
-
 const Home = {
   async render() {
     return `
@@ -82,25 +81,10 @@ const Home = {
         console.log('submit');
         SearchHandler();
       });
-    } catch (err){
+    } catch (err) {
       console.log(err);
-
     }
-
-
-
-
-
-
-  }
-
-
-
-
-
-
-
-
+  },
 };
 
 export default Home;
