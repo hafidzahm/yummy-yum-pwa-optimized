@@ -1,6 +1,6 @@
 import RestaurantSources from '../../data/restaurant-sources';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
-import {SearchHandler} from '../../utils/search'
+import { SearchHandler } from '../../utils/search';
 
 
 const Home = {
@@ -75,18 +75,18 @@ const Home = {
       console.log(err);
     }
 
-    try{
+    try {
       const searchForm = document.querySelector('.search-form');
-    searchForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      SearchHandler();
-    });
-    }catch(err){
+      searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        console.log('submit');
+        SearchHandler();
+      });
+    } catch (err){
       console.log(err);
 
     }
-    
+
 
 
 
