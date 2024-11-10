@@ -27,10 +27,31 @@ Scenario('adding restaurants to favorite', async ({ I }) => {
   I.click('.favoriteButton');
 
   I.amOnPage('/#/favorite');
-  I.seeElement('.restaurant-item');
+  I.seeElement('.card-item__container');
 
   const favoritedRestaurantName = await I.grabTextFrom('#card-item__name');
 
   assert.strictEqual(firstRestaurantName, favoritedRestaurantName);
 
+  // //unfavoriting restaurant
+
+  // I.amOnPage('/#/favorite');
+  // I.seeElement('.card-item__container');
+
+  // I.seeElement('.card-item__name a');
+  // const firstFavoritedRestaurant = locate('.card-item__name a').first();
+  // const firstFavoritedRestaurantName = await I.grabTextFrom(firstFavoritedRestaurant);
+  // I.click(firstFavoritedRestaurant);
+
+
+  // I.seeElement('.favoriteButton');
+  // I.click('.favoriteButton');
+
+  // I.amOnPage('/#/favorite');
+  // I.see('Anda tidak punya Restoran Favorit.', '.text-info');
+
+
+  // I.amOnPage('/#/home');
+  // const unfavoritedRestaurantName = await I.grabTextFrom('.card-item__name');
+  // assert.strictEqual(firstFavoritedRestaurantName, unfavoritedRestaurantName);
 });

@@ -213,7 +213,6 @@ header {
 }
 .card-item__container:hover {
   box-shadow: 0 25px 50px -12px antiquewhite;
-  animation: bounce 2s infinite;
   transition: 0.3s ease-in-out 0.15s;
   background-color: #969494;
 }
@@ -572,6 +571,8 @@ textarea {
 a {
   color: #212123;
   text-decoration: none;
+  min-height: 50px;
+  min-width: 50px;
 }
 
 a:hover {
