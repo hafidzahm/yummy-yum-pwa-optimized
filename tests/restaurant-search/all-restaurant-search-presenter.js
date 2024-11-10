@@ -1,39 +1,33 @@
 class AllRestaurantSearchPresenter {
-  constructor({ allRestaurants }) {
-    this._listenToSearchRequestByUser();
+  constructor({ allRestaurants, view }) {
     this._allRestaurants = allRestaurants;
+    this._view = view;
+
+    this._listenToSearchRequestByUser();
   }
 
   _listenToSearchRequestByUser() {
-    this._queryElement = document.getElementById('query');
-    this._queryElement.addEventListener('change', (event) => {
-      this._searchRestaurants(event.target.value);
+    this._view.runWhenUserIsSearching((latestQuery) => {
+      this._searchRestaurants(latestQuery);
     });
   }
 
   async _searchRestaurants(latestQuery) {
     this._latestQuery = latestQuery.trim();
-    const foundRestaurant = this._allRestaurants.searchRestaurants(
-      this._latestQuery
-    );
-    this._showFoundRestaurants(foundRestaurant);
+    let foundRestaurants;
+    if (this.latestQuery.length > 0) {
+      foundRestaurants = await this._allRestaurants.searchRestaurants(
+        this.latestQuery
+      );
+    } else {
+      foundRestaurants = await this._allRestaurants.getAllRestaurants();
+    }
+
+    this._showFoundRestaurants(foundRestaurants);
   }
 
   _showFoundRestaurants(restaurants) {
-    const html = restaurants.reduce(
-      (carry, restaurant) =>
-        carry.concat(`
-      <li class="restaurant">
-      <span class="restaurant__name">${restaurant.name || '-'}</span>
-      <span class="restaurant__city">${restaurant.city || '-'}</span>
-      <span class="restaurant__rating">${restaurant.rating || '-'}</span>
-      </li>`),
-      ''
-    );
-    document.querySelector('.restaurants').innerHTML = html;
-    document
-      .getElementById('restaurant-search-container')
-      .dispatchEvent(new Event('restaurants:searched:updated'));
+    this._view.showSearchedRestaurants(restaurants);
   }
 
   get latestQuery() {
