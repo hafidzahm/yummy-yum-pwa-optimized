@@ -30,9 +30,8 @@ module.exports = merge(common, {
         {
           test: /\.(jpe?g|png)/,
           options: {
-            quality: 45,
+            quality: 40,
           },
-          lossless: true,
         },
       ],
       overrideExtension: true,
@@ -40,7 +39,7 @@ module.exports = merge(common, {
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozjpeg({
-          quality: 42,
+          quality: 35,
           progressive: true,
         }),
       ],
