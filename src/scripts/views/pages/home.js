@@ -1,6 +1,6 @@
 import RestaurantSources from '../../data/restaurant-sources';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
-
+import { showLoading, hideLoading } from '../../utils/loading-utils';
 const Home = {
   async render() {
     return `
@@ -43,8 +43,13 @@ const Home = {
   },
 
   async afterRender() {
+    await this._homePageData();
+  },
+
+  async _homePageData() {
     const restaurants = await RestaurantSources.listRestaurant();
     const restaurantsContainer = document.querySelector('#card-lists');
+    showLoading();
     try {
       restaurants.forEach((restaurant) => {
         restaurantsContainer.innerHTML +=
@@ -52,6 +57,8 @@ const Home = {
       });
     } catch (err) {
       console.log(err);
+    } finally {
+      hideLoading();
     }
   },
 };

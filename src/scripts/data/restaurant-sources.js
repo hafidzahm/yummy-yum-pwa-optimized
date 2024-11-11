@@ -9,6 +9,8 @@ class RestaurantSources {
       return responseJson.restaurants;
     } catch (err) {
       console.log(err);
+      const homeContainer = document.querySelector('#card-lists');
+      homeContainer.innerHTML += InternetDisconnectedTemplate();
     }
   }
 
