@@ -11,7 +11,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   <div class="info__grid">
 
    <div class="info__picture">
-      <img id="restaurant__picture" class="restaurant__picture" src="${CONFIG.BASE_URL_IMG + restaurant.pictureId}" alt="Ini adalah gambar dari restoran ${restaurant.name}">
+      <img id="restaurant__picture" class="restaurant__picture" src="${CONFIG.BASE_URL_SIDEIMG + restaurant.pictureId}" alt="Ini adalah gambar dari restoran ${restaurant.name}">
    </div>
 
    <div class="grid__description">
