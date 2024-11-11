@@ -4,6 +4,7 @@ import UrlParser from '../../routes/url-parser';
 import PostReview from '../../utils/post-review';
 import buttonFavoriteInitiator from '../../utils/button-favorite-presenter';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
+import { showLoading, hideLoading } from '../../utils/loading-utils';
 
 const Detail = {
   async render() {
@@ -19,12 +20,17 @@ const Detail = {
   },
 
   async afterRender() {
+    await this._detailPageData();
+    await this._postReview();
+  },
+
+  async _detailPageData() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSources.detailRestaurant(url.id);
-    console.table(restaurant);
 
     const detailContainer = document.querySelector('#restaurant-list');
 
+    showLoading();
     try {
       detailContainer.innerHTML += createRestaurantDetailTemplate(restaurant);
 
@@ -43,8 +49,12 @@ const Detail = {
       });
     } catch (err) {
       console.log(err);
+    } finally {
+      hideLoading();
     }
+  },
 
+  async _postReview() {
     try {
       const submitReview = document.querySelector('#review_submit');
       submitReview.addEventListener('click', (event) => {
