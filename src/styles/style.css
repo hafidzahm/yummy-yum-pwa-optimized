@@ -579,3 +579,7 @@ a:hover {
   font-weight: 900;
   color: black;
 }
+
+iframe {
+  display: none;
+}

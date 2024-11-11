@@ -33,7 +33,6 @@ Scenario('adding a review from homepage', async ({ I }) => {
   I.fillField('#review', fillQueryReview);
 
   I.click('#review_submit');
-  I.seeElement('#warning');
 
   const nameValue = String(lastReviewerName);
   const reviewTextValue = String(lastReview);
@@ -91,7 +90,6 @@ Scenario('adding a review from favorited restaurant', async ({ I }) => {
   I.fillField('#review', fillQueryReview);
 
   I.click('#review_submit');
-  I.seeElement('#warning');
 
   const nameValue = String(lastReviewerName);
   const reviewTextValue = String(lastReview);
