@@ -124,11 +124,21 @@ const createRestaurantItemTemplate = (restaurants) => `
           <div class="card-item__info">
 
           <h2 class="card-item__rating " id="card-item__rating">
-          <img id="icon-rating" src=${CONFIG.RATING_ICON} alt="icon-rating">
+          <picture>
+      <source type="image/webp" srcset='./rating.webp'>
+      <source type="image/png" srcset='./rating.png'>
+      <img id="icon-rating" src='./rating.png' alt="icon-rating">
+    </picture>
+          
           ${restaurants.rating}</h2>
 
           <h3 class="card-item__city " id="card-item__city">
-          <img id="icon-city" src=${CONFIG.LOCATION_ICON} alt="icon-city">
+          <picture>
+      <source type="image/webp" srcset="./location.webp">
+      <source type="image/png" srcset="./location.png">
+      <img id="icon-city" src='./location.png' alt="icon-city">
+    </picture>
+         
           ${restaurants.city}</h3>
 
           
@@ -152,14 +162,23 @@ const createButtonUnfavoriteRestaurantTemplate = () => `
 `;
 
 const EmptyRestaurantContainerTemplate = () => `
-<div class="empty-favorite">
-<img src="${CONFIG.EMPTY_IMG}" id="img-empty-favorite"></img>
+<div class="empty-favorite">  
+<picture>
+<source type="image/webp" srcset="'./favorite-not-found.webp">
+<source type="image/png" srcset="'./favorite-not-found.png">
+<img src="./favorite-not-found.png" alt="" id="img-empty-favorite">
+</picture>
 <h1 class="text-info">Anda tidak punya Restoran Favorit. </br>
 Tambahkan minimal satu, nanti restoran favorit anda akan muncul disini</h1></div>
 `;
 const InternetDisconnectedTemplate = () => `
 <div class="empty-favorite">
-<img src="${CONFIG.DISCONNECTED_IMG}" id="img-disconnected"></img>
+<img src="./internet-disconnected.png" id="img-disconnected"></img>
+<picture>
+      <source type="image/webp" srcset="./internet-disconnected.webp">
+      <source type="image/png" srcset="./internet-disconnected.png">
+      <img src="./internet-disconnected.png" id="img-disconnected"></img>
+    </picture>
 <h1 class="text-info">Oops, halaman tidak ditemukan. </br>
 Mungkin jaringan terputus, coba beberapa saat lagi.</h1></div>
 `;
