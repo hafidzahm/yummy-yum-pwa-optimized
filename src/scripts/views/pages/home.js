@@ -12,6 +12,8 @@ const Home = {
       id="hero-img"
       src="./hero-image_2.jpg"
       alt="hero-image-2"
+      fetchpriority="high"
+      class="lazyload"
     />
     </picture>
     <div class="hero-text" id="hero-text">
@@ -26,7 +28,7 @@ const Home = {
       <picture>
       <source type="image/webp" srcset="./hero-image_1.webp">
       <source type="image/jpg" srcset="./hero-image_1.jpg">
-      <img id="about-img" src="./hero-image_1.jpg" alt="about-image">
+      <img id="about-img" class="lazyload"  src="./hero-image_1.jpg" alt="about-image">
     </picture>
       <div id="about-prg">
           <p id='about-paragraph'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolores fugiat hic eum, 
@@ -45,10 +47,7 @@ const Home = {
 
 <div id="card-lists" class="card-grid">
 <div id="loading" class="loading">
-<video autoplay loop muted playsinline>
-<source src="./loading.webm" type="video/webm">
-<source src="./loading.mp4" type="video/mp4">
-</video>
+<img type="img/gif" src="./loading.gif" />
 </div></div>
 </section>
       `;

@@ -14,10 +14,7 @@ const Favorite = {
   </div>
 
   <div id="loading" class="loading">
-  <video autoplay loop muted playsinline>
-  <source src="./loading.webm" type="video/webm">
-  <source src="./loading.mp4" type="video/mp4">
-</video>
+  <img type="img/gif" src="./loading.gif" />
 </div>
   
   <div id="restaurant-list" tabindex="0" class="favorite-grid"></div>

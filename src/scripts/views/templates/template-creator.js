@@ -118,7 +118,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 const createRestaurantItemTemplate = (restaurants) => `
 
 <div id="${restaurants.id}" class="card-item__container restaurant-item">
-          <img id="card-img" src="${CONFIG.BASE_URL_IMG + restaurants.pictureId} " alt='Gambar dari restoran ${restaurants.name || '-'}'>
+          <img id="card-img" class="lazyload" src="${CONFIG.BASE_URL_IMG + restaurants.pictureId} " alt='Gambar dari restoran ${restaurants.name || '-'}'>
           <h1 class="card-item__name restaurant__name" id="card-item__name"><a href="#/detail/${restaurants.id}">${restaurants.name || '-'}</a></h1>
 
           <div class="card-item__info">
@@ -164,9 +164,9 @@ const createButtonUnfavoriteRestaurantTemplate = () => `
 const EmptyRestaurantContainerTemplate = () => `
 <div class="empty-favorite">  
 <picture>
-<source type="image/webp" srcset="'./favorite-not-found.webp">
-<source type="image/png" srcset="'./favorite-not-found.png">
-<img src="./favorite-not-found.png" alt="" id="img-empty-favorite">
+<source type="image/webp" srcset="./favorite-not-found.webp">
+<source type="image/png" srcset="./favorite-not-found.png">
+<img src="${CONFIG.EMPTY_IMG}" alt="" id="img-empty-favorite">
 </picture>
 <h1 class="text-info">Anda tidak punya Restoran Favorit. </br>
 Tambahkan minimal satu, nanti restoran favorit anda akan muncul disini</h1></div>
