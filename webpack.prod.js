@@ -1,9 +1,9 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
-const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
-
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const ImageminMozjpeg = require('imagemin-mozjpeg');
+const imageminWebp = require('imagemin-webp');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -30,8 +30,9 @@ module.exports = merge(common, {
         {
           test: /\.(jpe?g|png)/,
           options: {
-            quality: 50,
+            quality: 45,
           },
+          lossless: true,
         },
       ],
       overrideExtension: true,
@@ -39,7 +40,7 @@ module.exports = merge(common, {
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozjpeg({
-          quality: 50,
+          quality: 42,
           progressive: true,
         }),
       ],

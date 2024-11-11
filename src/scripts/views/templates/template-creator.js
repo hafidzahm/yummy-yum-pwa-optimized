@@ -173,7 +173,6 @@ Tambahkan minimal satu, nanti restoran favorit anda akan muncul disini</h1></div
 `;
 const InternetDisconnectedTemplate = () => `
 <div class="empty-favorite">
-<img src="./internet-disconnected.png" id="img-disconnected"></img>
 <picture>
       <source type="image/webp" srcset="./internet-disconnected.webp">
       <source type="image/png" srcset="./internet-disconnected.png">
