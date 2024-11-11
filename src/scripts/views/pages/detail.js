@@ -15,10 +15,6 @@ const Detail = {
   </div></div>
 
     <div id="buttonFavoriteContainer"></div>
-
-
-
-
       `;
   },
 
