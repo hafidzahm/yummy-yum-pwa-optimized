@@ -3,6 +3,7 @@ import {
   createRestaurantItemTemplate,
   EmptyRestaurantContainerTemplate,
 } from '../templates/template-creator';
+import { showLoading, hideLoading } from '../../utils/loading-utils';
 
 const Favorite = {
   async render() {
@@ -22,10 +23,15 @@ const Favorite = {
   },
 
   async afterRender() {
+    await this._favoritePageData();
+  },
+
+  async _favoritePageData() {
     const restaurants = await FavoriteRestaurant.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurant-list');
     const itemRestaurant = document.getElementById('restaurant-list');
 
+    showLoading();
     try {
       restaurants.forEach((restaurant) => {
         restaurantContainer.innerHTML +=
@@ -37,6 +43,8 @@ const Favorite = {
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      hideLoading();
     }
   },
 };
