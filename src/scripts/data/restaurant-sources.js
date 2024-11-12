@@ -8,7 +8,7 @@ class RestaurantSources {
       const responseJson = await response.json();
       return responseJson.restaurants;
     } catch (err) {
-      const homeContainer = document.querySelector('#card-lists');
+      const homeContainer = document.querySelector('#restaurant-list');
       homeContainer.innerHTML += InternetDisconnectedTemplate();
     }
   }

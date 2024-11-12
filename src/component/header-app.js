@@ -9,12 +9,14 @@ class HeaderApp extends HTMLElement {
     this.innerHTML = `
       <div class="nav-container">
       <div id="nav-img">
+      <a href="#/home">
       <picture>
       <source type="image/webp" srcset="./brand.webp">
       <source type="image/png" srcset="./brand.png">
       <img src="./brand.png" alt="hero-image-1">
-      </div>
     </picture>
+    </a>
+    </div>
       <button id="hamburger" aria-label="Buka menu navigasi" title="Menu navigasi">☰</button>
       <nav id="side-nav" class="side-nav">
         <ul>

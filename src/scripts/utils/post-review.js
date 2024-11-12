@@ -34,22 +34,29 @@ const PostReview = async () => {
     const warningPlacement = document.querySelector('#review-warning');
     warningPlacement.innerHTML += emptyWarning;
   } else {
-    try {
-      const reviewInclude = '<p id="warning">Menambahkan review anda...</p>';
+    if (navigator.online) {
+      try {
+        const reviewInclude = '<p id="warning">Menambahkan review anda...</p>';
+        const warningPlacement = document.querySelector('#review-warning');
+        warningPlacement.innerHTML += reviewInclude;
+        await RestaurantSources.postReview(dataReview);
+        containerReview.innerHTML += reviewTemplate;
+
+        name.value = '';
+        review.value = '';
+      } catch (err) {
+      } finally {
+        const warningBox = document.querySelector('#review-warning');
+        const warningText = document.querySelector('#warning');
+        if (warningText) {
+          warningBox.remove();
+        }
+      }
+    } else {
+      const reviewInclude =
+        '<p id="warning">Maaf jaringan anda terputus. Anda bisa berikan review ketika anda tersambung kembali...</p>';
       const warningPlacement = document.querySelector('#review-warning');
       warningPlacement.innerHTML += reviewInclude;
-      await RestaurantSources.postReview(dataReview);
-      containerReview.innerHTML += reviewTemplate;
-
-      name.value = '';
-      review.value = '';
-    } catch (err) {
-    } finally {
-      const warningBox = document.querySelector('#review-warning');
-      const warningText = document.querySelector('#warning');
-      if (warningText) {
-        warningBox.remove();
-      }
     }
   }
 };

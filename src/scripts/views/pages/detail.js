@@ -47,6 +47,7 @@ const Detail = {
     } finally {
       hideLoading();
     }
+
     try {
       const submitReview = document.querySelector('#review_submit');
       submitReview.addEventListener('click', (event) => {
