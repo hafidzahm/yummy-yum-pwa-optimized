@@ -3,8 +3,6 @@ const common = require('./webpack.common');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const ImageminMozjpeg = require('imagemin-mozjpeg');
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: 'production',
@@ -69,6 +67,5 @@ module.exports = merge(common, {
         }),
       ],
     }),
-    new BundleAnalyzerPlugin(),
   ],
 });
