@@ -1,1 +1,474 @@
-.skip-link{height:30px;left:0;padding:8px;position:absolute;transform:translateY(-100%);transition:transform .3s;background-color:#bf1722;color:white;padding:8px}.skip-link:focus{transform:translateY(0)}#about-desc{background-color:#4d4c4c;padding:25px;border:15px;border-radius:20px}#about-container{background-color:rgba(212,209,204,0.425);padding:15px;border-radius:20px}#about-img{border-radius:30px}#about-paragraph{font-size:1.18em;color:antiquewhite}#about-title{text-align:center}.nav-container{overflow:hidden;display:flex;justify-content:flex-end;align-items:center;padding:20px 20px;box-shadow:0 1px 8px #ddd;background-color:#686767}#nav-img{margin-right:auto;max-width:50px}li{list-style:none;display:inline-block;padding:0 20px}.nav-container a{text-decoration:none;color:antiquewhite;transition:all .3s ease 0s}.nav-container a:hover{color:#212121}.container-footer{background-color:#8f8d8d;font-size:16px;text-align:center;padding:10px 10px}#mainContent{background-color:#424141;flex:1;min-height:100vh}.card-favorite{max-width:260px}.favorite-grid{margin:auto;justify-items:center;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.card-item__name{font-size:33px}.hero-img{background-color:#424141;position:relative;text-align:left;color:antiquewhite}.hero-text{position:absolute;bottom:20%;left:5%;font-size:5vw;background-color:#424141}header{position:fixed;top:0;z-index:10001;width:100%}.header-app{min-height:56px;transition:min-height .3s}.header__brand{width:100%;text-align:center;margin-left:auto;margin-right:auto;background-color:#616161}.header__title{font-weight:1000;min-height:44px;min-width:44px;margin:.5em .25em;display:inline-block;color:#212121;border-radius:10px;padding:5px}#card-img{border-radius:15px;max-width:100%}#card-lists,.favorite-grid{padding:10px;max-width:1100px;margin-inline:auto;background-color:#424141;min-height:fit-content}#favoriteButtonContainer{min-width:50px;min-height:50px}.card-title{background-color:#424141;padding:10px;min-height:44px;min-width:44px;max-width:1000px;margin:auto}#card-lists-favorite{display:grid;max-width:100%;height:fit-content;width:100%}#card-title__text{text-align:center;border-radius:10px;padding:10px;max-width:1200px;background-color:#7a7a7a;font-size:20px;margin:auto}.card-item__container{background-color:#7a7a7a;padding:15px;border-radius:20px;margin:10px;height:fit-content}.card-item__container:hover{box-shadow:0 25px 50px -12px antiquewhite;transition:.3s ease-in-out .15s;background-color:#969494}@keyframes bounce{0%,100%{transform:translateY(-5%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:translateY(0);animation-timing-function:cubic-bezier(0,0,0.2,1)}}.card-item__info{display:grid;grid-template-columns:.5fr 1fr;grid-template-rows:1fr;background-color:#212123;border-radius:15px;padding:5px;padding-top:10px}.card-item__rating{justify-self:center;color:rgba(250,235,215,0.795);font-size:15px}.card-item__city{place-items:center;align-items:center;justify-self:center;color:antiquewhite;font-size:15px;display:inline-block}.card-item__description{font-size:1.18em;height:410px;text-overflow:ellipsis;white-space:wrap;overflow:hidden}#icon-rating{max-width:32px}#icon-city{max-width:32px}.hidden{display:none}.card-item__description{display:none}.card-detail{display:grid;gap:15px;background-color:#424141;padding:10px;height:fit-content;max-width:1000px;margin:auto}#restaurant__picture{border-radius:20px}.section___menus{background-color:#3d3d3d;display:grid;padding:10px;gap:10px;border-radius:13px}.section__title__review{color:antiquewhite;text-align:center;padding-bottom:10px}.section__reviews{display:grid;padding:10px;background-color:#181818;border-radius:13px}.reviews__container{display:grid;background-color:#181818;gap:20px}#review__customer{background-color:#616161;padding-left:13px;border-radius:10px}.section__info{display:grid;padding:10px;background-color:#424141}.info__name,.info__rating,.info__address{background-color:#302f2f;border-radius:17px;justify-content:space-evenly;justify-items:center;align-content:space-evenly;align-items:center}.grid__location{display:grid;gap:10px}.section__title{background-color:#181818;border-radius:17px}#info__name,#info__rating,#info__address,.section__title{color:antiquewhite;text-align:center}#info__address{padding:2px}.info__group,.section__menus{display:grid;padding:10px;gap:10px;border-radius:13px}.section__foods,.section__drinks{display:grid;grid-template-rows:.5fr 4fr;padding:10px;gap:10px;border-radius:13px}.section__detail{display:grid;gap:10px}#review__customer>h1,h2,h3{margin:0;margin-bottom:5px}.info__picture{padding:10px}.info__description,.section__foods,.section__drinks{background-color:#616161;border-radius:15px}#info__description{padding:15px;color:black}.grid__description{gap:10px}#review__customer{padding:10px}.food__container,.drinks__container{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,2fr));padding-left:5px;padding-right:5px;width:100%;gap:5px}.details-menu-foods,.details-menu-drinks{background-color:#3d3d3d;color:antiquewhite;padding:10px;border-radius:10px;margin:0}#card-lists{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));justify-items:center}.favoriteButton{width:55px;height:55px;display:flex;align-items:center;justify-content:center;background-color:#db0000;position:fixed;bottom:16px;right:16px;border-radius:50%;border:0;font-size:18px;color:white;cursor:pointer}.empty-favorite{text-align:center}#img-empty-favorite,#img-disconnected{max-width:440px}.review_form{display:grid;background-color:#181818;max-width:800px;padding:10px;padding-left:20px;padding-right:20px;margin-left:auto;margin-right:auto;border-radius:30px}.form-container{background-color:#424141}#review-warning{color:antiquewhite;font-size:18px}.review_title{color:antiquewhite;text-align:center}.review_name,.review_text{text-align:center;color:antiquewhite}.text-info{color:rgba(250,235,215,0.658);font-size:18px;margin-left:5px;margin-right:5px}textarea,input{font-size:20px}input[type='text']{width:100%;padding:12px 20px;margin:8px 0;box-sizing:border-box}input[type='text']:focus,textarea:focus{border:3px solid red}textarea{width:100%;height:150px;padding:12px 20px;box-sizing:border-box;border:2px solid #ccc;border-radius:4px;background-color:#f8f8f8;resize:none}#review_submit{background-color:#04aa6d;border:0;color:white;padding:15px 32px;text-align:center;width:200px;font-size:16px;display:grid;margin:auto}.loading{max-width:100px;margin:auto}a{color:#212123;text-decoration:none;min-height:50px;min-width:50px}a:hover{font-weight:900;color:black}iframe{display:none}
+.skip-link {
+  height: 30px;
+  left: 0;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  background-color: #bf1722;
+  color: white;
+  padding: 8px;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+#about-desc {
+  background-color: #4d4c4c;
+  padding: 25px;
+  border: 15px;
+  border-radius: 20px;
+}
+#about-container {
+  background-color: rgba(212, 209, 204, 0.425);
+  padding: 15px;
+  border-radius: 20px;
+}
+#about-img {
+  border-radius: 30px;
+}
+#about-paragraph {
+  font-size: 1.18em;
+  color: antiquewhite;
+}
+#about-title {
+  text-align: center;
+}
+.nav-container {
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 20px;
+  box-shadow: 0 1px 8px #ddd;
+  background-color: #686767;
+}
+#nav-img {
+  margin-right: auto;
+  max-width: 50px;
+}
+li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+}
+.nav-container a {
+  text-decoration: none;
+  color: antiquewhite;
+  transition: all 0.3s ease 0s;
+}
+.nav-container a:hover {
+  color: #212121;
+}
+.container-footer {
+  background-color: #8f8d8d;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 10px;
+}
+#mainContent {
+  background-color: #424141;
+  flex: 1;
+  min-height: 100vh;
+}
+.card-favorite {
+  max-width: 260px;
+}
+.favorite-grid {
+  margin: auto;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card-item__name {
+  font-size: 33px;
+}
+.hero-img {
+  background-color: #424141;
+  position: relative;
+  text-align: left;
+  color: antiquewhite;
+}
+.hero-text {
+  position: absolute;
+  bottom: 20%;
+  left: 5%;
+  font-size: 5vw;
+  background-color: #424141;
+}
+header {
+  position: fixed;
+  top: 0;
+  z-index: 10001;
+  width: 100%;
+}
+.header-app {
+  min-height: 56px;
+  transition: min-height 0.3s;
+}
+.header__brand {
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #616161;
+}
+.header__title {
+  font-weight: 1000;
+  min-height: 44px;
+  min-width: 44px;
+  margin: 0.5em 0.25em;
+  display: inline-block;
+  color: #212121;
+  border-radius: 10px;
+  padding: 5px;
+}
+#card-img {
+  border-radius: 15px;
+  max-width: 100%;
+}
+#card-lists,
+.favorite-grid {
+  padding: 10px;
+  max-width: 1100px;
+  margin-inline: auto;
+  background-color: #424141;
+  min-height: fit-content;
+}
+#favoriteButtonContainer {
+  min-width: 50px;
+  min-height: 50px;
+}
+.card-title {
+  background-color: #424141;
+  padding: 10px;
+  min-height: 44px;
+  min-width: 44px;
+  max-width: 1000px;
+  margin: auto;
+}
+#card-lists-favorite {
+  display: grid;
+  max-width: 100%;
+  height: fit-content;
+  width: 100%;
+}
+#card-title__text {
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 1200px;
+  background-color: #7a7a7a;
+  font-size: 20px;
+  margin: auto;
+}
+.card-item__container {
+  background-color: #7a7a7a;
+  padding: 15px;
+  border-radius: 20px;
+  margin: 10px;
+  height: fit-content;
+}
+.card-item__container:hover {
+  box-shadow: 0 25px 50px -12px antiquewhite;
+  transition: 0.3s ease-in-out 0.15s;
+  background-color: #969494;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+.card-item__info {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 1fr;
+  background-color: #212123;
+  border-radius: 15px;
+  padding: 5px;
+  padding-top: 10px;
+}
+.card-item__rating {
+  justify-self: center;
+  color: rgba(250, 235, 215, 0.795);
+  font-size: 15px;
+}
+.card-item__city {
+  place-items: center;
+  align-items: center;
+  justify-self: center;
+  color: antiquewhite;
+  font-size: 15px;
+  display: inline-block;
+}
+.card-item__description {
+  font-size: 1.18em;
+  height: 410px;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  overflow: hidden;
+}
+#icon-rating {
+  max-width: 32px;
+}
+#icon-city {
+  max-width: 32px;
+}
+.hidden {
+  display: none;
+}
+.card-item__description {
+  display: none;
+}
+.card-detail {
+  display: grid;
+  gap: 15px;
+  background-color: #424141;
+  padding: 10px;
+  height: fit-content;
+  max-width: 1000px;
+  margin: auto;
+}
+#restaurant__picture {
+  border-radius: 20px;
+}
+.section___menus {
+  background-color: #3d3d3d;
+  display: grid;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 13px;
+}
+.section__title__review {
+  color: antiquewhite;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.section__reviews {
+  display: grid;
+  padding: 10px;
+  background-color: #181818;
+  border-radius: 13px;
+}
+.reviews__container {
+  display: grid;
+  background-color: #181818;
+  gap: 20px;
+}
+#review__customer {
+  background-color: #616161;
+  padding-left: 13px;
+  border-radius: 10px;
+}
+.section__info {
+  display: grid;
+  padding: 10px;
+  background-color: #424141;
+}
+.info__name,
+.info__rating,
+.info__address {
+  background-color: #302f2f;
+  border-radius: 17px;
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
+}
+.grid__location {
+  display: grid;
+  gap: 10px;
+}
+.section__title {
+  background-color: #181818;
+  border-radius: 17px;
+}
+#info__name,
+#info__rating,
+#info__address,
+.section__title {
+  color: antiquewhite;
+  text-align: center;
+}
+#info__address {
+  padding: 2px;
+}
+.info__group,
+.section__menus {
+  display: grid;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 13px;
+}
+.section__foods,
+.section__drinks {
+  display: grid;
+  grid-template-rows: 0.5fr 4fr;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 13px;
+}
+.section__detail {
+  display: grid;
+  gap: 10px;
+}
+#review__customer > h1,
+h2,
+h3 {
+  margin: 0;
+  margin-bottom: 5px;
+}
+.info__picture {
+  padding: 10px;
+}
+.info__description,
+.section__foods,
+.section__drinks {
+  background-color: #616161;
+  border-radius: 15px;
+}
+#info__description {
+  padding: 15px;
+  color: black;
+}
+.grid__description {
+  gap: 10px;
+}
+#review__customer {
+  padding: 10px;
+}
+.food__container,
+.drinks__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 2fr));
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 100%;
+  gap: 5px;
+}
+.details-menu-foods,
+.details-menu-drinks {
+  background-color: #3d3d3d;
+  color: antiquewhite;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0;
+}
+#card-lists {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-items: center;
+}
+.favoriteButton {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db0000;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+.empty-favorite {
+  text-align: center;
+}
+#img-empty-favorite,
+#img-disconnected {
+  max-width: 440px;
+}
+.review_form {
+  display: grid;
+  background-color: #181818;
+  max-width: 800px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+}
+.form-container {
+  background-color: #424141;
+}
+#review-warning {
+  color: antiquewhite;
+  font-size: 18px;
+}
+.review_title {
+  color: antiquewhite;
+  text-align: center;
+}
+.review_name,
+.review_text {
+  text-align: center;
+  color: antiquewhite;
+}
+.text-info {
+  color: rgba(250, 235, 215, 0.658);
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+textarea,
+input {
+  font-size: 20px;
+}
+input[type='text'] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type='text']:focus,
+textarea:focus {
+  border: 3px solid red;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+#review_submit {
+  background-color: #04aa6d;
+  border: 0;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  width: 200px;
+  font-size: 16px;
+  display: grid;
+  margin: auto;
+}
+.loading {
+  max-width: 100px;
+  margin: auto;
+}
+a {
+  color: #212123;
+  text-decoration: none;
+  min-height: 50px;
+  min-width: 50px;
+}
+a:hover {
+  font-weight: 900;
+  color: black;
+}
+iframe {
+  display: none;
+}
