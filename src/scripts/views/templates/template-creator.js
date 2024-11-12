@@ -52,11 +52,11 @@ const createRestaurantDetailTemplate = (restaurant) => `
     </div>
     <div class="food__container">
                 ${restaurant.menus.foods
-    .map(
-      (food) => `
+                  .map(
+                    (food) => `
                     <p class="details-menu-foods">${food.name}</p>`
-    )
-    .join('')}
+                  )
+                  .join('')}
     </div>
   </div>
 
@@ -66,11 +66,11 @@ const createRestaurantDetailTemplate = (restaurant) => `
     </div>
     <div class="drinks__container">
     ${restaurant.menus.drinks
-    .map(
-      (drink) => `
+      .map(
+        (drink) => `
           <p class="details-menu-drinks">${drink.name}</p>`
-    )
-    .join('')}
+      )
+      .join('')}
     </div>
   </div>
 </div>
@@ -164,8 +164,8 @@ const createButtonUnfavoriteRestaurantTemplate = () => `
 const EmptyRestaurantContainerTemplate = () => `
 <div class="empty-favorite">  
 <picture>
-<source type="image/webp" srcset="./favorite-not-found.webp">
-<source type="image/png" srcset="./favorite-not-found.png">
+<source srcset="./favorite-not-found.webp" type="image/webp">
+<source srcset="./favorite-not-found.png" type="image/png">
 <img src="${CONFIG.EMPTY_IMG}" alt="" id="img-empty-favorite">
 </picture>
 <h1 class="text-info">Anda tidak punya Restoran Favorit. </br>
@@ -174,9 +174,9 @@ Tambahkan minimal satu, nanti restoran favorit anda akan muncul disini</h1></div
 const InternetDisconnectedTemplate = () => `
 <div class="empty-favorite">
 <picture>
-      <source type="image/webp" srcset="./internet-disconnected.webp">
-      <source type="image/png" srcset="./internet-disconnected.png">
-      <img src="./internet-disconnected.png" id="img-disconnected"></img>
+      <source srcset="./internet-disconnected.webp" type="image/webp">
+      <source srcset="./internet-disconnected.png" type="image/png">
+      <img src="${CONFIG.DISCONNECTED_IMG}" id="img-disconnected"></img>
     </picture>
 <h1 class="text-info">Oops, halaman tidak ditemukan. </br>
 Mungkin jaringan terputus, coba beberapa saat lagi.</h1></div>

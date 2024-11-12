@@ -6,11 +6,11 @@ const Home = {
     return `
     <section class="hero-img" id="root">
     <picture>
-      <source type="image/webp" srcset="./hero-image_2.webp">
-      <source type="image/jpg" srcset="./hero-image_2.jpg">
+      <source media="(max-width: 600px)" srcset="./hero-image_2-small.webp" type="image/webp">
+      <source media="(max-width: 600px)" srcset="./hero-image_2-small.jpg" type="image/jpg">
       <img
       id="hero-img"
-      src="./hero-image_2.jpg"
+      src="./hero-image_2-large.jpg"
       alt="hero-image-2"
       fetchpriority="high"
       class="lazyload"
@@ -26,9 +26,9 @@ const Home = {
   <div id="about-desc">
       
       <picture>
-      <source type="image/webp" srcset="./hero-image_1.webp">
-      <source type="image/jpg" srcset="./hero-image_1.jpg">
-      <img id="about-img" class="lazyload"  src="./hero-image_1.jpg" alt="about-image">
+      <source media="(max-width: 600px)" type="image/webp" srcset="./hero-image_1-small.webp">
+      <source media="(max-width: 600px)" type="image/jpg" srcset="./hero-image_1-small.jpg">
+      <img id="about-img" class="lazyload"  src="./hero-image_1-large.jpg" alt="about-image">
     </picture>
       <div id="about-prg">
           <p id='about-paragraph'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolores fugiat hic eum, 
@@ -54,10 +54,6 @@ const Home = {
   },
 
   async afterRender() {
-    await this._homePageData();
-  },
-
-  async _homePageData() {
     const restaurants = await RestaurantSources.listRestaurant();
     const restaurantsContainer = document.querySelector('#card-lists');
     showLoading();

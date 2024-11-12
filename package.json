@@ -14,7 +14,8 @@
     "prettier-check": "prettier --check .",
     "prettier-write": "prettier --write .",
     "e2e": "codeceptjs run --steps",
-    "build-video": "node build-video.js"
+    "build-video": "node build-video.js",
+    "build-image": "node sharp.js"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -49,6 +50,7 @@
     "playwright": "^1.48.2",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
+    "sharp": "^0.33.5",
     "style-loader": "^3.3.1",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",

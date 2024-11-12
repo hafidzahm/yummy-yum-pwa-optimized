@@ -21,11 +21,6 @@ const Detail = {
   },
 
   async afterRender() {
-    await this._detailPageData();
-    await this._postReview();
-  },
-
-  async _detailPageData() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSources.detailRestaurant(url.id);
 
@@ -53,9 +48,6 @@ const Detail = {
     } finally {
       hideLoading();
     }
-  },
-
-  async _postReview() {
     try {
       const submitReview = document.querySelector('#review_submit');
       submitReview.addEventListener('click', (event) => {
