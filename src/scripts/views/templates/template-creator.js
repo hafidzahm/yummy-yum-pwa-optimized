@@ -11,7 +11,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
   <div class="info__grid">
 
    <div class="info__picture">
-      <img id="restaurant__picture" class="restaurant__picture" src="${CONFIG.BASE_URL_SIDEIMG + restaurant.pictureId}" alt="Ini adalah gambar dari restoran ${restaurant.name}">
+      <img id="restaurant__picture" class="restaurant__picture" src="${CONFIG.BASE_URL_SIDEIMG + restaurant.pictureId}" alt="Ini adalah restoran ${restaurant.name}">
    </div>
 
    <div class="grid__description">
@@ -100,15 +100,15 @@ const createRestaurantDetailTemplate = (restaurant) => `
 <h1 class="review_title">Tambahkan Review</h1>
 <div class="review_name">
   <label>Nama</label>
-  <input type="text" name="name" id="name" placeholder="Nama" />
+  <input type="text" name="name" id="name" placeholder="Nama" aria-label="Nama reviewer" />
 </div>
 <div class="review_text">
   <label>Ulasan</label>
-  <textarea name="review" id="review" rows="4" placeholder="Ulasan"></textarea>
+  <textarea name="review" id="review" rows="4" placeholder="Ulasan" aria-label="Ulasan"></textarea>
 </div>
 <div id="review-warning">
 </div>
-<button type="submit" id="review_submit">Kirim</button>
+<button type="submit" id="review_submit" aria-label="Kirim review">Kirim</button>
 </form>
 <div>
 
