@@ -3,6 +3,8 @@ const common = require('./webpack.common');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const ImageminMozjpeg = require('imagemin-mozjpeg');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: 'production',
@@ -27,7 +29,7 @@ module.exports = merge(common, {
     splitChunks: {
       chunks: 'all',
       minSize: 20000,
-      maxSize: 180000,
+      maxSize: 200000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -67,5 +69,6 @@ module.exports = merge(common, {
         }),
       ],
     }),
+    new BundleAnalyzerPlugin(),
   ],
 });
