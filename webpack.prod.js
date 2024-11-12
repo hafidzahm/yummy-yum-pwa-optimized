@@ -4,7 +4,6 @@ const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 
-
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
@@ -27,8 +26,8 @@ module.exports = merge(common, {
   optimization: {
     splitChunks: {
       chunks: 'all',
-      minSize: 20000,
-      maxSize: 200000,
+      minSize: 40000,
+      maxSize: 50000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -68,6 +67,5 @@ module.exports = merge(common, {
         }),
       ],
     }),
-
   ],
 });
