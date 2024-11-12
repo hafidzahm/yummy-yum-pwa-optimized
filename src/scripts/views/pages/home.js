@@ -46,7 +46,7 @@ const Home = {
 </div>
 
 <div id="card-lists" class="card-grid">
-<div id="loading" class="loading">
+<div id="loading" class="loading" loading="lazy">
 <img type="img/gif" src="./loading.gif" />
 </div></div>
 </section>

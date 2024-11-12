@@ -11,7 +11,7 @@ const Detail = {
     return `    
  
     <div id="restaurant-list" tabindex="0" class="card-detail">
-  <div id="loading" class="loading">
+  <div id="loading" class="loading" loading="lazy">
   <img type="img/gif" src="./loading.gif" />
 
 </div></div>
