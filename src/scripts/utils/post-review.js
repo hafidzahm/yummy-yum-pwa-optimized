@@ -34,7 +34,7 @@ const PostReview = async () => {
     const warningPlacement = document.querySelector('#review-warning');
     warningPlacement.innerHTML += emptyWarning;
   } else {
-    if (navigator.online) {
+    if (navigator.onLine) {
       try {
         const reviewInclude = '<p id="warning">Menambahkan review anda...</p>';
         const warningPlacement = document.querySelector('#review-warning');

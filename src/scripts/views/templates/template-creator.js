@@ -106,10 +106,10 @@ const createRestaurantDetailTemplate = (restaurant) => `
   <label>Ulasan</label>
   <textarea name="review" id="review" rows="4" placeholder="Ulasan" aria-label="Ulasan"></textarea>
 </div>
-<div id="review-warning">
-</div>
+<div id="review-warning"></div>
 <button type="submit" id="review_submit" aria-label="Kirim review">Kirim</button>
 </form>
+
 <div>
 
 
