@@ -44,7 +44,6 @@ const Detail = {
         },
       });
     } catch (err) {
-      console.log(err);
     } finally {
       hideLoading();
     }
@@ -54,9 +53,7 @@ const Detail = {
         event.preventDefault();
         PostReview();
       });
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   },
 };
 

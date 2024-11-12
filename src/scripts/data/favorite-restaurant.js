@@ -16,16 +16,12 @@ const FavoriteRestaurant = {
         return;
       }
       return (await dbPromise).get(OBJECT_STORE_NAME, id);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   },
   async getAllRestaurants() {
     try {
       return (await dbPromise).getAll(OBJECT_STORE_NAME);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   },
   async putRestaurant(restaurant) {
     try {
@@ -33,16 +29,12 @@ const FavoriteRestaurant = {
         return;
       }
       return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   },
   async deleteRestaurant(id) {
     try {
       return (await dbPromise).delete(OBJECT_STORE_NAME, id);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   },
 };
 

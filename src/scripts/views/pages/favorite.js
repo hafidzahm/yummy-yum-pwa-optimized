@@ -38,7 +38,6 @@ const Favorite = {
         restaurantContainer.innerHTML += EmptyRestaurantContainerTemplate();
       }
     } catch (err) {
-      console.log(err);
     } finally {
       hideLoading();
     }

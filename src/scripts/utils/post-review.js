@@ -44,7 +44,6 @@ const PostReview = async () => {
       name.value = '';
       review.value = '';
     } catch (err) {
-      console.log(err);
     } finally {
       const warningBox = document.querySelector('#review-warning');
       const warningText = document.querySelector('#warning');

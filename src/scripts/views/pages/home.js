@@ -63,7 +63,6 @@ const Home = {
           createRestaurantItemTemplate(restaurant);
       });
     } catch (err) {
-      console.log(err);
     } finally {
       hideLoading();
     }

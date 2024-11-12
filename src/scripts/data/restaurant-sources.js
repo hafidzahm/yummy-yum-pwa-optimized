@@ -8,7 +8,6 @@ class RestaurantSources {
       const responseJson = await response.json();
       return responseJson.restaurants;
     } catch (err) {
-      console.log(err);
       const homeContainer = document.querySelector('#card-lists');
       homeContainer.innerHTML += InternetDisconnectedTemplate();
     }
@@ -20,7 +19,6 @@ class RestaurantSources {
       const responseJson = await response.json();
       return responseJson.restaurant;
     } catch (err) {
-      console.log(err);
       const detailContainer = document.querySelector('#restaurant-list');
       detailContainer.innerHTML += InternetDisconnectedTemplate();
     }
@@ -39,7 +37,6 @@ class RestaurantSources {
       const responseJson = await response.json();
       return responseJson;
     } catch (err) {
-      console.log(err);
       const containerReview = document.querySelector('reviews__container');
       containerReview.innerHTML += InternetDisconnectedTemplate();
     }
