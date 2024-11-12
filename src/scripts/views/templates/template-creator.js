@@ -125,18 +125,18 @@ const createRestaurantItemTemplate = (restaurants) => `
 
           <h2 class="card-item__rating " id="card-item__rating">
           <picture>
-      <source type="image/webp" srcset='./rating.webp'>
-      <source type="image/png" srcset='./rating.png'>
-      <img id="icon-rating" src='./rating.png' alt="icon-rating">
+      <source type="image/webp" srcset='${CONFIG.RATING_ICON_WEBP}'>
+      <source type="image/png" srcset='${CONFIG.RATING_ICON}'>
+      <img id="icon-rating" src='${CONFIG.RATING_ICON}' alt="icon-rating">
     </picture>
           
           ${restaurants.rating}</h2>
 
           <h3 class="card-item__city " id="card-item__city">
           <picture>
-      <source type="image/webp" srcset="./location.webp">
-      <source type="image/png" srcset="./location.png">
-      <img id="icon-city" src='./location.png' alt="icon-city">
+      <source type="image/webp" srcset="${CONFIG.LOCATION_ICON_WEBP}">
+      <source type="image/png" srcset="${CONFIG.LOCATION_ICON}">
+      <img id="icon-city" src='${CONFIG.LOCATION_ICON}' alt="icon-city">
     </picture>
          
           ${restaurants.city}</h3>
@@ -164,8 +164,8 @@ const createButtonUnfavoriteRestaurantTemplate = () => `
 const EmptyRestaurantContainerTemplate = () => `
 <div class="empty-favorite">  
 <picture>
-<source srcset="./favorite-not-found.webp" type="image/webp">
-<source srcset="./favorite-not-found.png" type="image/png">
+<source srcset="${CONFIG.EMPTY_WEBP}" type="image/webp">
+<source srcset="${CONFIG.EMPTY_IMG}" type="image/png">
 <img src="${CONFIG.EMPTY_IMG}" alt="" id="img-empty-favorite">
 </picture>
 <h1 class="text-info">Anda tidak punya Restoran Favorit. </br>
@@ -174,8 +174,8 @@ Tambahkan minimal satu, nanti restoran favorit anda akan muncul disini</h1></div
 const InternetDisconnectedTemplate = () => `
 <div class="empty-favorite">
 <picture>
-      <source srcset="./internet-disconnected.webp" type="image/webp">
-      <source srcset="./internet-disconnected.png" type="image/png">
+      <source srcset="${CONFIG.DISCONNECTED_WEBP}" type="image/webp">
+      <source srcset="${CONFIG.DISCONNECTED_IMG}" type="image/png">
       <img src="${CONFIG.DISCONNECTED_IMG}" id="img-disconnected"></img>
     </picture>
 <h1 class="text-info">Oops, halaman tidak ditemukan. </br>

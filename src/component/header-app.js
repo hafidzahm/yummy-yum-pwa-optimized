@@ -8,10 +8,12 @@ class HeaderApp extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="nav-container">
+      <div id="nav-img">
       <picture>
       <source type="image/webp" srcset="./brand.webp">
       <source type="image/png" srcset="./brand.png">
-      <img src="./brand.png" id="nav-img" alt="hero-image-1">
+      <img src="./brand.png" alt="hero-image-1">
+      </div>
     </picture>
       <button id="hamburger">☰</button>
       <nav id="side-nav" class="side-nav">
