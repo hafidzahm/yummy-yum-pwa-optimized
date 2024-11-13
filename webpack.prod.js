@@ -7,7 +7,6 @@ const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -82,6 +81,5 @@ module.exports = merge(common, {
       openAnalyzer: false,
     }),
     new MiniCssExtractPlugin(),
-    new UglifyJsPlugin(),
   ],
 });
