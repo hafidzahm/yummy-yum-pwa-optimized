@@ -3,6 +3,11 @@ const common = require('./webpack.common');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const ImageminMozjpeg = require('imagemin-mozjpeg');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -21,13 +26,17 @@ module.exports = merge(common, {
           },
         ],
       },
+      {
+        test: /.s?css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
     ],
   },
   optimization: {
     splitChunks: {
       chunks: 'all',
-      minSize: 40000,
-      maxSize: 50000,
+      minSize: 20000,
+      maxSize: 20000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -45,6 +54,7 @@ module.exports = merge(common, {
         },
       },
     },
+    minimizer: [new CssMinimizerPlugin()],
   },
 
   plugins: [
@@ -67,5 +77,11 @@ module.exports = merge(common, {
         }),
       ],
     }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+    }),
+    new MiniCssExtractPlugin(),
+    new UglifyJsPlugin(),
   ],
 });

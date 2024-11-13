@@ -1,1 +1,190 @@
-@media screen and (max-width:900px){.side-nav{height:100%;width:0;position:fixed;z-index:1;top:0;left:0;background-color:#575757;overflow-x:hidden;padding-top:60px;transition:0.5s}.side-nav a{padding:8px 8px 8px 32px;text-decoration:none;font-size:25px;color:#818181;display:block;transition:0.3s}.side-nav a:hover{color:#f1f1f1}.side-nav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px}#hamburger,#closeBtn{min-width:44px;min-height:44px;background-color:#494949;color:antiquewhite;border-radius:10px}#closeBtn{margin-bottom:40px}ul{display:grid}.nav-container{padding:20px 20px}}@media screen and (min-width:900px){#hamburger,#closeBtn{display:none}ul{padding-left:0;min-width:400px}.side-nav{position:relative}}@media screen and (min-width:700px){#card-lists,#card-lists-favorite{max-width:1024px}.card-item__container{max-width:400px}card-item{display:grid}.card-img{max-height:100%}#card-title__text{font-size:60px}#card-item__description{font-size:25px}#about-desc{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr}#about-img{padding:20px}#about-prg{padding-left:20px}.section__detail{display:grid;grid-template-columns:1fr 1fr;gap:10px}.reviews__container{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,3fr))}#review__customer{padding:10px}}@media screen and (min-width:1200px){#header__title{font-size:.18rem}.hero-img{width:1000px;margin-left:auto;margin-right:auto;background-color:#212121}#hero-img{border-radius:30px;padding-top:10px;max-height:570px;min-width:100%;object-fit:cover}#hero-text{position:absolute;bottom:60%;right:40%;font-size:40px}#card-lists,#card-lists-favorite{display:grid;max-width:1200px}#about-container{max-width:1000px;margin:auto}#card-item__rating{font-size:1.09rem}#card-item__city{font-size:1.09rem}#card-item__name{font-size:1.75rem}.card-item__description{display:none}.hero-text{font-size:1px}.nav-container{max-height:70px}.restaurant__picture{max-width:500px;min-height:700px;object-fit:cover}.info__grid{display:grid;grid-template-columns:0.8fr 1fr}.grid__description{display:grid}#info__rating,#info__address,#info__categories{padding:20px}.info__name{margin-bottom:20px}#mainContent,#card-lists-favorite{max-width:1300px;margin:0 auto;height:fit-content;width:100%}main{background-color:#424141}.info__name{text-align:left}}
+@media screen and (max-width: 900px) {
+  .side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #575757;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+  }
+  .side-nav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  .side-nav a:hover {
+    color: #f1f1f1;
+  }
+  .side-nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  #hamburger,
+  #closeBtn {
+    min-width: 44px;
+    min-height: 44px;
+    background-color: #494949;
+    color: antiquewhite;
+    border-radius: 10px;
+  }
+  #closeBtn {
+    margin-bottom: 40px;
+  }
+  ul {
+    display: grid;
+  }
+  .nav-container {
+    padding: 20px 20px;
+  }
+}
+@media screen and (min-width: 900px) {
+  #hamburger,
+  #closeBtn {
+    display: none;
+  }
+  ul {
+    padding-left: 0;
+    min-width: 400px;
+  }
+  .side-nav {
+    position: relative;
+  }
+}
+@media screen and (min-width: 700px) {
+  #card-lists,
+  #card-lists-favorite {
+    max-width: 1024px;
+  }
+  .card-item__container {
+    max-width: 400px;
+  }
+  card-item {
+    display: grid;
+  }
+  .card-img {
+    max-height: 100%;
+  }
+  #card-title__text {
+    font-size: 60px;
+  }
+  #card-item__description {
+    font-size: 25px;
+  }
+  #about-desc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  #about-img {
+    padding: 20px;
+  }
+  #about-prg {
+    padding-left: 20px;
+  }
+  .section__detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .reviews__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(185px, 3fr));
+  }
+  #review__customer {
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #header__title {
+    font-size: 0.18rem;
+  }
+  .hero-img {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #212121;
+  }
+  #hero-img {
+    border-radius: 30px;
+    padding-top: 10px;
+    max-height: 570px;
+    min-width: 100%;
+    object-fit: cover;
+  }
+  #hero-text {
+    position: absolute;
+    bottom: 60%;
+    right: 40%;
+    font-size: 40px;
+  }
+  #card-lists,
+  #card-lists-favorite {
+    display: grid;
+    max-width: 1200px;
+  }
+  #about-container {
+    max-width: 1000px;
+    margin: auto;
+  }
+  #card-item__rating {
+    font-size: 1.09rem;
+  }
+  #card-item__city {
+    font-size: 1.09rem;
+  }
+  #card-item__name {
+    font-size: 1.75rem;
+  }
+  .card-item__description {
+    display: none;
+  }
+  .hero-text {
+    font-size: 1px;
+  }
+  .nav-container {
+    max-height: 70px;
+  }
+  .restaurant__picture {
+    max-width: 500px;
+    min-height: 700px;
+    object-fit: cover;
+  }
+  .info__grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+  }
+  .grid__description {
+    display: grid;
+  }
+  #info__rating,
+  #info__address,
+  #info__categories {
+    padding: 20px;
+  }
+  .info__name {
+    margin-bottom: 20px;
+  }
+  #mainContent,
+  #card-lists-favorite {
+    max-width: 1300px;
+    margin: 0 auto;
+    height: fit-content;
+    width: 100%;
+  }
+  main {
+    background-color: #424141;
+  }
+  .info__name {
+    text-align: left;
+  }
+}

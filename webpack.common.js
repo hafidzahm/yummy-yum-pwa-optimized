@@ -55,14 +55,12 @@ module.exports = {
           },
         },
         {
-          urlPattern: ({ url }) =>
-            url.href.endsWith('.webp'),
+          urlPattern: ({ url }) => url.href.endsWith('.webp'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'yummy-yum-dicoding-api-webp',
           },
-
-        }
+        },
       ],
     }),
   ],
