@@ -2,6 +2,7 @@ import DrawerInitiator from '../utils/drawer-initiator';
 
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
+import { FalsePageTemplate } from './templates/template-creator';
 
 class App {
   constructor({ button, drawer, closeBtn, content }) {
@@ -23,10 +24,22 @@ class App {
   }
 
   async renderPage() {
+    await this._pageFound();
+    this._skipButton();
+  }
+
+  async _pageFound() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
-    this._content.innerHTML = await page.render();
-    await page.afterRender();
+    if (page) {
+      this._content.innerHTML = await page.render();
+      await page.afterRender();
+    } else {
+      this._content.innerHTML = FalsePageTemplate();
+    }
+  }
+
+  _skipButton() {
     const buttonSkip = document.querySelector('#skip-link');
     const main = document.querySelector('#restaurant-list');
     buttonSkip.addEventListener('click', (event) => {

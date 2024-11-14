@@ -29,11 +29,29 @@ const PostReview = async () => {
         `;
 
   if (name.value === '' || review.value === '') {
+    emptyReviewWarning();
+  } else {
+    checkInternet();
+  }
+
+  function checkInternet() {
+    if (navigator.onLine) {
+      sendReview();
+      removeWarning();
+    } else {
+      internetOfflineWarning();
+    }
+  }
+  function emptyReviewWarning() {
     const emptyWarning =
       '<p id="warning">Nama dan review tidak boleh kosong!</p>';
     const warningPlacement = document.querySelector('#review-warning');
     warningPlacement.innerHTML += emptyWarning;
-  } else {
+  }
+  function sendReview() {
+    sendReviewApi();
+  }
+  async function sendReviewApi() {
     try {
       const reviewInclude = '<p id="warning">Menambahkan review anda...</p>';
       const warningPlacement = document.querySelector('#review-warning');
@@ -44,13 +62,22 @@ const PostReview = async () => {
       name.value = '';
       review.value = '';
     } catch (err) {
-      console.log(err);
     } finally {
-      const warningBox = document.querySelector('#review-warning');
-      const warningText = document.querySelector('#warning');
-      if (warningText) {
-        warningBox.remove();
-      }
+      removeWarning();
+    }
+  }
+  function internetOfflineWarning() {
+    const reviewInclude =
+      '<p id="warning">Maaf jaringan anda terputus. Anda bisa berikan review ketika anda tersambung kembali...</p>';
+    const warningPlacement = document.querySelector('#review-warning');
+    warningPlacement.innerHTML += reviewInclude;
+  }
+
+  function removeWarning() {
+    const parent = document.getElementById('review-warning');
+    const warningText = document.getElementById('warning');
+    if (warningText) {
+      parent.removeChild(warningText);
     }
   }
 };

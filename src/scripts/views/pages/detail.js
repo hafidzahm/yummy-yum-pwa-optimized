@@ -4,31 +4,34 @@ import UrlParser from '../../routes/url-parser';
 import PostReview from '../../utils/post-review';
 import buttonFavoriteInitiator from '../../utils/button-favorite-presenter';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
+import { showLoading, hideLoading } from '../../utils/loading-utils';
 
 const Detail = {
   async render() {
     return `    
  
     <div id="restaurant-list" tabindex="0" class="card-detail">
-    <div id="loading" class="loading">
-    <img src="./loading.gif" alt="animasi loading">
-  </div></div>
+  <div id="loading" class="loading">
+  <img type="img/gif" src="./loading.gif" loading="lazy"/>
+
+</div></div>
 
     <div id="buttonFavoriteContainer"></div>
-
-
-
-
       `;
   },
 
   async afterRender() {
+    await this._detailPage();
+    await this._postReview();
+  },
+
+  async _detailPage() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSources.detailRestaurant(url.id);
-    console.table(restaurant);
 
     const detailContainer = document.querySelector('#restaurant-list');
 
+    showLoading();
     try {
       detailContainer.innerHTML += createRestaurantDetailTemplate(restaurant);
 
@@ -46,18 +49,17 @@ const Detail = {
         },
       });
     } catch (err) {
-      console.log(err);
+    } finally {
+      hideLoading();
     }
+  },
 
-    try {
-      const submitReview = document.querySelector('#review_submit');
-      submitReview.addEventListener('click', (event) => {
-        event.preventDefault();
-        PostReview();
-      });
-    } catch (err) {
-      console.log(err);
-    }
+  async _postReview() {
+    const submitReview = document.querySelector('#review_submit');
+    submitReview.addEventListener('click', async (event) => {
+      event.preventDefault();
+      await PostReview();
+    });
   },
 };
 
