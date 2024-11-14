@@ -24,6 +24,11 @@ class App {
   }
 
   async renderPage() {
+    this._pageFound();
+    this._skipButton();
+  }
+
+  async _pageFound() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
     if (page) {
@@ -32,7 +37,9 @@ class App {
     } else {
       this._content.innerHTML = FalsePageTemplate();
     }
+  }
 
+  _skipButton() {
     const buttonSkip = document.querySelector('#skip-link');
     const main = document.querySelector('#restaurant-list');
     buttonSkip.addEventListener('click', (event) => {
