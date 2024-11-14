@@ -10,9 +10,12 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
   <div class="info__grid">
 
-   <div class="info__picture">
-      <img id="restaurant__picture" class="restaurant__picture" src="${CONFIG.BASE_URL_SIDEIMG + restaurant.pictureId}" alt="Ini adalah restoran ${restaurant.name}">
-   </div>
+  <div class="info__picture">
+  <picture>
+  <source media="(max-width: 600px)" srcset="${CONFIG.BASE_URL_IMG + restaurant.pictureId}">
+  <img id="restaurant__picture" class="restaurant__picture" src="${CONFIG.BASE_URL_SIDEIMG + restaurant.pictureId}" alt="Ini adalah restoran ${restaurant.name}">
+ </picture>
+ </div>
 
    <div class="grid__description">
 

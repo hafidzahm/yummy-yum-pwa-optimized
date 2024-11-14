@@ -35,7 +35,7 @@ module.exports = merge(common, {
   optimization: {
     splitChunks: {
       chunks: 'all',
-      minSize: 20000,
+      minSize: 15000,
       maxSize: 20000,
       minChunks: 1,
       maxAsyncRequests: 30,
@@ -55,7 +55,12 @@ module.exports = merge(common, {
       },
     },
     minimize: true,
-    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin({
+        test: /\.js(\?.*)?$/i,
+      }),
+    ],
   },
 
   plugins: [

@@ -13,8 +13,8 @@ const Favorite = {
     <h1 id="card-title__text">Restoran Favorit</h1>
   </div>
 
-  <div id="loading" class="loading" loading="lazy">
-  <img type="img/gif" src="./loading.gif" />
+  <div id="loading" class="loading" >
+  <img type="img/gif" src="./loading.gif" loading="lazy" />
 </div>
   
   <div id="restaurant-list" tabindex="0" class="favorite-grid"></div>
