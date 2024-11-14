@@ -21,6 +21,11 @@ const Detail = {
   },
 
   async afterRender() {
+    await this._detailPage();
+    await this._postReview();
+  },
+
+  async _detailPage() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSources.detailRestaurant(url.id);
 
@@ -47,14 +52,14 @@ const Detail = {
     } finally {
       hideLoading();
     }
+  },
 
-    try {
-      const submitReview = document.querySelector('#review_submit');
-      submitReview.addEventListener('click', (event) => {
-        event.preventDefault();
-        PostReview();
-      });
-    } catch (err) {}
+  async _postReview() {
+    const submitReview = document.querySelector('#review_submit');
+    submitReview.addEventListener('click', async (event) => {
+      event.preventDefault();
+      await PostReview();
+    });
   },
 };
 
