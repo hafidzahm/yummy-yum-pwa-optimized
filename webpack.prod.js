@@ -79,7 +79,7 @@ module.exports = merge(common, {
       ],
     }),
     new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
+      analyzerMode: 'disabled',
       openAnalyzer: false,
     }),
     new MiniCssExtractPlugin(),
