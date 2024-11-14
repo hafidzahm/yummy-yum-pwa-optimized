@@ -185,6 +185,17 @@ const InternetDisconnectedTemplate = () => `
 Mungkin jaringan terputus, coba beberapa saat lagi.</h1></div>
 `;
 
+const FalsePageTemplate = () => `
+<div class="empty-favorite">
+<picture>
+      <source srcset="${CONFIG.DISCONNECTED_WEBP}" type="image/webp">
+      <source srcset="${CONFIG.DISCONNECTED_IMG}" type="image/png">
+      <img src="${CONFIG.DISCONNECTED_IMG}" id="img-disconnected"></img>
+    </picture>
+<h1 class="text-info">Halaman tidak ditemukan. </br>
+Kayanya kamu tersesat, kuy balik lagi sebelum telat!</h1></div>
+`;
+
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
@@ -192,4 +203,5 @@ export {
   createButtonUnfavoriteRestaurantTemplate,
   EmptyRestaurantContainerTemplate,
   InternetDisconnectedTemplate,
+  FalsePageTemplate,
 };
