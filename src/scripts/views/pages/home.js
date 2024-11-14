@@ -70,7 +70,7 @@ const Home = {
     } finally {
       hideLoading();
     }
-  }
+  },
 };
 
 export default Home;
