@@ -54,6 +54,10 @@ const Home = {
   },
 
   async afterRender() {
+    await this._homePageApi();
+  },
+
+  async _homePageApi() {
     const restaurants = await RestaurantSources.listRestaurant();
     const restaurantsContainer = document.querySelector('#card-lists');
     showLoading();
@@ -66,7 +70,7 @@ const Home = {
     } finally {
       hideLoading();
     }
-  },
+  }
 };
 
 export default Home;
