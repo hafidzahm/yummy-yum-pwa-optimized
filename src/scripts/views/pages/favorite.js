@@ -23,6 +23,10 @@ const Favorite = {
   },
 
   async afterRender() {
+    await this._favoritePageApi();
+  },
+
+  async _favoritePageApi() {
     const restaurants = await FavoriteRestaurant.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurant-list');
     const itemRestaurant = document.getElementById('restaurant-list');
