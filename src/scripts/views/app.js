@@ -24,7 +24,7 @@ class App {
   }
 
   async renderPage() {
-    this._pageFound();
+    await this._pageFound();
     this._skipButton();
   }
 
