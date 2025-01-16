@@ -10,9 +10,12 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
   <div class="info__grid">
 
-   <div class="info__picture">
-      <img id="restaurant__picture" class="restaurant__picture" src="${CONFIG.BASE_URL_IMG + restaurant.pictureId}" alt="Ini adalah gambar dari restoran ${restaurant.name}">
-   </div>
+  <div class="info__picture">
+  <picture>
+  <source media="(max-width: 600px)" srcset="${CONFIG.BASE_URL_IMG + restaurant.pictureId}">
+  <img id="restaurant__picture" class="restaurant__picture" src="${CONFIG.BASE_URL_SIDEIMG + restaurant.pictureId}" alt="Ini adalah restoran ${restaurant.name}">
+ </picture>
+ </div>
 
    <div class="grid__description">
 
@@ -100,16 +103,16 @@ const createRestaurantDetailTemplate = (restaurant) => `
 <h1 class="review_title">Tambahkan Review</h1>
 <div class="review_name">
   <label>Nama</label>
-  <input type="text" name="name" id="name" placeholder="Nama" />
+  <input type="text" name="name" id="name" placeholder="Nama" aria-label="Nama reviewer" />
 </div>
 <div class="review_text">
   <label>Ulasan</label>
-  <textarea name="review" id="review" rows="4" placeholder="Ulasan"></textarea>
+  <textarea name="review" id="review" rows="4" placeholder="Ulasan" aria-label="Ulasan"></textarea>
 </div>
-<div id="review-warning">
-</div>
-<button type="submit" id="review_submit">Kirim</button>
+<div id="review-warning"></div>
+<button type="submit" id="review_submit" aria-label="Kirim review">Kirim</button>
 </form>
+
 <div>
 
 
@@ -118,17 +121,27 @@ const createRestaurantDetailTemplate = (restaurant) => `
 const createRestaurantItemTemplate = (restaurants) => `
 
 <div id="${restaurants.id}" class="card-item__container restaurant-item">
-          <img id="card-img" src="${CONFIG.BASE_URL_IMG + restaurants.pictureId} " alt='Gambar dari restoran ${restaurants.name || '-'}'>
+          <img id="card-img" class="lazyload" data-src="${CONFIG.BASE_URL_IMG + restaurants.pictureId} " alt='Gambar dari restoran ${restaurants.name || '-'}'>
           <h1 class="card-item__name restaurant__name" id="card-item__name"><a href="#/detail/${restaurants.id}">${restaurants.name || '-'}</a></h1>
 
           <div class="card-item__info">
 
           <h2 class="card-item__rating " id="card-item__rating">
-          <img id="icon-rating" src=${CONFIG.RATING_ICON} alt="icon-rating">
+          <picture>
+      <source type="image/webp" srcset='${CONFIG.RATING_ICON_WEBP}'>
+      <source type="image/png" srcset='${CONFIG.RATING_ICON}'>
+      <img id="icon-rating" src='${CONFIG.RATING_ICON}' alt="icon-rating">
+    </picture>
+          
           ${restaurants.rating}</h2>
 
           <h3 class="card-item__city " id="card-item__city">
-          <img id="icon-city" src=${CONFIG.LOCATION_ICON} alt="icon-city">
+          <picture>
+      <source type="image/webp" srcset="${CONFIG.LOCATION_ICON_WEBP}">
+      <source type="image/png" srcset="${CONFIG.LOCATION_ICON}">
+      <img id="icon-city" src='${CONFIG.LOCATION_ICON}' alt="icon-city">
+    </picture>
+         
           ${restaurants.city}</h3>
 
           
@@ -152,16 +165,35 @@ const createButtonUnfavoriteRestaurantTemplate = () => `
 `;
 
 const EmptyRestaurantContainerTemplate = () => `
-<div class="empty-favorite">
-<img src="${CONFIG.EMPTY_IMG}" id="img-empty-favorite"></img>
+<div class="empty-favorite">  
+<picture>
+<source srcset="${CONFIG.EMPTY_WEBP}" type="image/webp">
+<source srcset="${CONFIG.EMPTY_IMG}" type="image/png">
+<img src="${CONFIG.EMPTY_IMG}" alt="" id="img-empty-favorite">
+</picture>
 <h1 class="text-info">Anda tidak punya Restoran Favorit. </br>
 Tambahkan minimal satu, nanti restoran favorit anda akan muncul disini</h1></div>
 `;
 const InternetDisconnectedTemplate = () => `
 <div class="empty-favorite">
-<img src="${CONFIG.DISCONNECTED_IMG}" id="img-disconnected"></img>
+<picture>
+      <source srcset="${CONFIG.DISCONNECTED_WEBP}" type="image/webp">
+      <source srcset="${CONFIG.DISCONNECTED_IMG}" type="image/png">
+      <img src="${CONFIG.DISCONNECTED_IMG}" id="img-disconnected"></img>
+    </picture>
 <h1 class="text-info">Oops, halaman tidak ditemukan. </br>
 Mungkin jaringan terputus, coba beberapa saat lagi.</h1></div>
+`;
+
+const FalsePageTemplate = () => `
+<div class="empty-favorite">
+<picture>
+      <source srcset="${CONFIG.DISCONNECTED_WEBP}" type="image/webp">
+      <source srcset="${CONFIG.DISCONNECTED_IMG}" type="image/png">
+      <img src="${CONFIG.DISCONNECTED_IMG}" id="img-disconnected"></img>
+    </picture>
+<h1 class="text-info">Halaman tidak ditemukan. </br>
+Kayanya kamu tersesat, kuy balik lagi sebelum telat!</h1></div>
 `;
 
 export {
@@ -171,4 +203,5 @@ export {
   createButtonUnfavoriteRestaurantTemplate,
   EmptyRestaurantContainerTemplate,
   InternetDisconnectedTemplate,
+  FalsePageTemplate,
 };

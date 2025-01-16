@@ -54,6 +54,13 @@ module.exports = {
             cacheName: 'yummy-yum-dicoding-api',
           },
         },
+        {
+          urlPattern: ({ url }) => url.href.endsWith('.webp'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'yummy-yum-dicoding-api-webp',
+          },
+        },
       ],
     }),
   ],
